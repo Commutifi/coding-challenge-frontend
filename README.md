@@ -20,6 +20,7 @@ Your challenge is to build a responsive microsite that display the weather forec
 
 * Localization: support for multiple languages (English, French, ...)
 * Backend: proxy the request, handle better the quota (cache?)
+* Features: any extra features, you think use full for the user
 ### Remarks
 
 * You can setup your microsite any way you like; we're partial to NodeJS, ExpressJS and React
