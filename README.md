@@ -13,7 +13,7 @@ Your challenge is to build a responsive microsite that display the weather forec
 
 ## Non-functional requirements
 
-- Challenge is submitted as pull request against this repo ([fork it](https://help.github.com/articles/fork-a-repo/) and [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
+- Challenge is submitted as pull request against this repo ([fork it](https://help.github.com/articles/fork-a-repo/) and [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)).
 - The microsite should be deployed and usable.
 
 ### Bonus
@@ -39,7 +39,7 @@ Your challenge is to build a responsive microsite that display the weather forec
 
 ## Supporting API
 
-- To consult the weather forecast, you can use [OpenWeather](https://api.openweathermap.org/data/2.5/weather?lat=33.44&lon=-94.04&appid=b81cd1a66eaee287ea9830aa66250511] using the API key `b81cd1a66eaee287ea9830aa66250511`. If necessary, create a new account.
+- To consult the weather forecast, you can use [OpenWeather](https://api.openweathermap.org/data/2.5/weather?lat=33.44&lon=-94.04&appid=b81cd1a66eaee287ea9830aa66250511) using the API key `b81cd1a66eaee287ea9830aa66250511`. If necessary, create a new account.
 - To convert latitude and longitude to a location use [OpenCage](https://api.opencagedata.com/geocode/v1/json?q=%7B%7Blatitude%7D%7D,%7B%7Blongitude%7D%7D&key=066c930b1b9f4d9bb89733fb93e9827b&language=en) using the API key `066c930b1b9f4d9bb89733fb93e9827b`. If necessary, create a new account.
 
 
