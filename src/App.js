@@ -2,17 +2,18 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:01:09
  * @LastEditors: Leo
- * @LastEditTime: 2022-09-29 16:07:00
+ * @LastEditTime: 2022-09-29 16:12:58
  * @FilePath: \coding-challenge-frontend\src\App.js
  * @Description:
  */
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Home from './views/Home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -25,7 +26,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <Home />
     </div>
   );
 }
