@@ -9,8 +9,8 @@ Your challenge is to build a responsive microsite that display the weather forec
 - Forecasts for: today, tomorrow and the day after tomorrow should be shown.
 - For temperatures below 15ºC, blue color should be used, for temperatures above 35ºC, red should be used and yellow should be used for other temperatures.
 - When there is no chosen location, gray should be used . If the user clicks on any temperature, the temperatures should be changed from Celsius to Fahrenheit or from Fahrenheit to Celsius.
-- Components should flexible enough to display the day above or under the temperature.
 - The color defined here can be use for the text color or the background, be creative.
+- Components should flexible enough to display the day above or under the temperature.
 
 ## Non-functional requirements
 
