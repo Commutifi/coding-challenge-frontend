@@ -7,10 +7,10 @@
 
     .location-input-container {
         display: flex;
-        overflow: hidden;
-        padding: $containerPadding;
+        padding: $containerPaddingMd $containerPadding;
         border-radius: $containerBorderRadius;
         box-shadow: $containerBoxShadow;
+        overflow: hidden;
 
         .inputs-transform-container {
             position: relative;
@@ -23,7 +23,7 @@
 
                 .input-long-lat {
                     display: flex;
-                    margin-top: 32px;
+                    margin-top: 64px;
                 }
             }
         }
