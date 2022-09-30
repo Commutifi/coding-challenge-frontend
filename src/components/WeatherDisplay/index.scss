@@ -1,0 +1,27 @@
+@import '../../rootStyle.scss';
+
+.weather-display-main {
+    width: 100%;
+    height: auto;
+    margin: 4% 0;
+    display: flex;
+    flex-direction: column;
+    padding: $containerPadding;
+    border-radius: $containerBorderRadius;
+    box-shadow: $containerBoxShadow;
+    box-sizing: border-box;
+
+    .weather-display-city-name {
+        width: 100%;
+        margin-bottom: 24px;
+        height: auto;
+    }
+
+    .weather-display-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 16px;
+        flex: 1;
+    }
+}

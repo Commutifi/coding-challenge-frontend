@@ -1,0 +1,47 @@
+@import '../../rootStyle.scss';
+
+.weather-card-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: $containerBorderRadius;
+    box-shadow: $containerBoxShadow;
+    user-select: none;
+
+    .weather-card-color-block {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        border-radius: $containerBorderRadius;
+    }
+
+    .weather-card-container {
+        padding: $containerPadding;
+        box-sizing: border-box;
+
+        .weather-card-date {
+            padding: 16px;
+        }
+
+        .weather-card-temp-icon {
+            margin: 24px 0px
+        }
+
+        .weather-card-temp-num {
+            margin: 8px 0px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        .weather-card-temp-main {
+            margin: 16px 0px
+        }
+    }
+
+}

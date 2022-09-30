@@ -2,12 +2,13 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:01:09
  * @LastEditors: Leo
- * @LastEditTime: 2022-09-29 16:12:58
+ * @LastEditTime: 2022-09-29 17:04:28
  * @FilePath: \coding-challenge-frontend\src\App.js
  * @Description:
  */
 // import logo from './logo.svg';
 import './App.css';
+import 'animate.css';
 import Home from './views/Home';
 
 function App() {

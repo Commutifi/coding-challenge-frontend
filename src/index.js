@@ -2,12 +2,13 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:01:09
  * @LastEditors: Leo
- * @LastEditTime: 2022-09-29 16:07:29
+ * @LastEditTime: 2022-09-29 17:52:43
  * @FilePath: \coding-challenge-frontend\src\index.js
  * @Description:
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './rootStyle.scss';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
