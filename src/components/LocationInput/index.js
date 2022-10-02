@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-09-29 21:59:54
+ * @LastEditTime: 2022-10-02 17:54:26
  * @FilePath: \coding-challenge-frontend\src\components\LocationInput\index.js
  * @Description:
  */
@@ -10,17 +10,25 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { useDispatch } from 'react-redux';
-import { changeLocation } from '../../redux/locationSlice';
+import { changeLocation, setIsLocal } from '../../redux/locationSlice';
 import { Autocomplete, LoadScript } from '@react-google-maps/api';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import './index.scss';
 
 const libraries = ["places"];
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const LocationInput = () => {
     const [searchMethod, setSearchMethod] = React.useState('name');
@@ -28,20 +36,15 @@ const LocationInput = () => {
     const [locationFromName, setLocationFromName] = React.useState(null);
     const [place, setPlace] = React.useState('');
     const [autoComplete, setAutoComplete] = React.useState(null);
+    const [error, setError] = React.useState(false);
+    const [shake, setShake] = React.useState('');
+
+    const matches = useMediaQuery('(max-width: 900px)');
 
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        window.navigator.geolocation.getCurrentPosition((position) => {
-            setLocation({
-                lat: position.coords.latitude,
-                lon: position.coords.longitude
-            });
-            dispatch(changeLocation({
-                lat: position.coords.latitude,
-                lon: position.coords.longitude
-            }));
-        });
+        getLocalWeather();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -61,9 +64,26 @@ const LocationInput = () => {
 
     const handleSearch = () => {
         if (searchMethod === 'name') {
-            dispatch(changeLocation(locationFromName));
+            // if place input is empty, get local weather
+            if (!place) {
+                getLocalWeather();
+            } else {
+                dispatch(changeLocation(locationFromName));
+                dispatch(setIsLocal({ isLocal: false }));
+            }
         } else {
-            dispatch(changeLocation(location));
+            // if location is empty, get local weather
+            if (!location.lon && !location.lat) {
+                getLocalWeather();
+            } else if (!location.lon || !location.lat) {
+                setError(true);
+                if (!location.lon) setShake('lon');
+                if (!location.lat) setShake('lat');
+                setTimeout(() => {setShake('')}, 500);
+            } else {
+                dispatch(changeLocation(location));
+                dispatch(setIsLocal({ isLocal: false }));
+            }
         }
     };
 
@@ -80,11 +100,36 @@ const LocationInput = () => {
         });
     };
 
+    const getLocalWeather = () => {
+        window.navigator.geolocation.getCurrentPosition((position) => {
+            dispatch(changeLocation({
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+            }));
+            dispatch(setIsLocal({ isLocal: true }));
+        });
+    };
+
     return (
         <Box className='location-input-main'>
+
+        <Snackbar
+            open={error}
+            autoHideDuration={2000}
+            onClose={() => setError(false)}
+            anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'center'
+            }}
+        >
+            <Alert onClose={() => setError(false)} severity="warning" sx={{ width: '100%' }}>
+                Wrong location coordinates!
+            </Alert>
+        </Snackbar>
+
             <Box className='location-input-container'>
 
-                <FormControl sx={{width: '200px'}}>
+                <FormControl sx={{width: '130px'}}>
                     <InputLabel>Search By</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -93,6 +138,7 @@ const LocationInput = () => {
                         label="Search By"
                         sx={{mr: 2}}
                         onChange={handleSearchMethodChange}
+                        size={matches ? 'small' : 'medium'}
                     >
                         <MenuItem value={'name'}>Name</MenuItem>
                         <MenuItem value={'location'}>Location</MenuItem>
@@ -108,6 +154,7 @@ const LocationInput = () => {
                     >
                         <LoadScript
                             googleMapsApiKey="AIzaSyCKR_7S6WE5ETziYlastsHnmKuvELeFTW4"
+                            language='en'
                             libraries={libraries}
                         >
                             <Autocomplete onLoad={handleOnLoad} onPlaceChanged={handlePlaceSelected}>
@@ -117,6 +164,7 @@ const LocationInput = () => {
                                     value={place}
                                     onChange={(e) => setPlace(e.target.value)}
                                     sx={{width: '100%'}}
+                                    size={matches ? 'small' : 'medium'}
                                 />
                             </Autocomplete>
                         </LoadScript>
@@ -127,6 +175,8 @@ const LocationInput = () => {
                                 variant="outlined"
                                 sx={{width: '50%', mr: 1}}
                                 value={location?.lon || ''}
+                                size={matches ? 'small' : 'medium'}
+                                className={`animate__animated animate__faster ${shake === 'lon' ? 'animate__headShake' : ''}`}
                                 onChange={(e) => handleLocationChange(e, 'lon')}
                             />
                             <TextField
@@ -135,20 +185,31 @@ const LocationInput = () => {
                                 variant="outlined"
                                 sx={{width: '50%', ml: 1}}
                                 value={location?.lat || ''}
+                                size={matches ? 'small' : 'medium'}
+                                className={`animate__animated animate__faster ${shake === 'lat' ? 'animate__headShake' : ''}`}
                                 onChange={(e) => handleLocationChange(e, 'lat')}
                             />
                         </Box>
                     </Box>
                 </Box>
 
-                <Button
-                    variant="contained"
-                    startIcon={<SearchIcon />}
-                    sx={{width: '200px', ml: 2}}
-                    onClick={handleSearch}
-                >
-                    Search
-                </Button>
+                {
+                    matches ?
+                    <IconButton color="primary" onClick={handleSearch} sx={{ml: 2}}>
+                        <SearchIcon />
+                    </IconButton> :
+                    <Button
+                        variant="contained"
+                        startIcon={<SearchIcon />}
+                        sx={{
+                            width: '120px',
+                            ml: 2,
+                        }}
+                        onClick={handleSearch}
+                    >
+                        Search
+                    </Button>
+                }
             </Box>
         </Box>
     );

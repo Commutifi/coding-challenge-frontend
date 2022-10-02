@@ -1,6 +1,23 @@
+@import '../../rootStyle.scss';
+
 .main {
     width: 65%;
     height: auto;
     padding: 5%;
     box-sizing: border-box;
+
+    @media (max-width: $screen-width-1800) {
+        width: 80%;
+        padding: 5% 3%;
+    }
+
+    @media (max-width: $screen-width-1500) {
+        width: 90%;
+        padding: 5% 2%;
+    }
+
+    @media (max-width: $screen-width-1200) {
+        width: 100%;
+        padding: 5% 2%;
+    }
 }
