@@ -1,0 +1,38 @@
+@import './mixin/media';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+  --theme: rgb(111, 76, 255);
+}
+
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-lg {
+    width: 960px;
+  }
+
+  @include media-md {
+    width: 720px;
+  }
+
+  @include media-sm {
+    width: 576px;
+  }
+
+  @include media-xs {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

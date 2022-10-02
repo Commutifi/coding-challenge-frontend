@@ -1,0 +1,16 @@
+.footer :global {
+  padding: 8px 0;
+  background-color: var(--theme);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .footer-title {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+}

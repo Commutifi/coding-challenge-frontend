@@ -1,0 +1,29 @@
+.header :global {
+  backdrop-filter: blur(4px);
+  box-shadow: 1px 0px 10px 1px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 64px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      font-size: 24px;
+      font-weight: bold;
+
+      svg {
+        fill: black;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+  }
+
+}

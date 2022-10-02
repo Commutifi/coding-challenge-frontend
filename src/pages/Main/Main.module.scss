@@ -1,0 +1,37 @@
+.main :global {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    .search-box {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+
+      .search-input {
+        background-color: transparent;
+
+        width: 320px;
+        height: 32px;
+
+        outline: none;
+        border: 1px solid var(--theme);
+        border-radius: 24px;
+
+        padding: 0 48px 0 24px;
+
+        font-size: 14px;
+        text-align: center;
+      }
+
+      svg {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
