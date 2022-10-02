@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 18:24:32
+ * @LastEditTime: 2022-10-02 18:51:53
  * @FilePath: \coding-challenge-frontend\src\components\LocationInput\index.js
  * @Description:
  */
@@ -153,7 +153,7 @@ const LocationInput = () => {
                         }}
                     >
                         <LoadScript
-                            googleMapsApiKey="AIzaSyCKR_7S6WE5ETziYlastsHnmKuvELeFTW4"
+                            googleMapsApiKey='AIzaSyC9q83SHSHKCqEM0Q23IH91DopXxoXsm-I'
                             language='en'
                             libraries={libraries}
                         >

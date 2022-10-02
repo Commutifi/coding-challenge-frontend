@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 18:13:09
+ * @LastEditTime: 2022-10-02 18:42:29
  * @FilePath: \coding-challenge-frontend\src\components\WeatherDisplay\index.js
  * @Description:
  */
@@ -87,8 +87,8 @@ const WeatherDisplay = () => {
             <Box className='weather-display-container'>
                 {
                     cardLoading ?
-                    [1, 2, 3].map(() => (
-                        <Box className='weather-card-loading-main'>
+                    [1, 2, 3].map((item) => (
+                        <Box className='weather-card-loading-main' key={item}>
                             <Skeleton variant="rounded" width={70} height={32} sx={{borderRadius: 16}} />
                             <Skeleton variant="rectangular" width='90%' height={20} sx={{mt: 3, borderRadius: 2}} />
                             <Skeleton variant="rectangular" width='90%' height={150} sx={{mt: 3, borderRadius: 4}} />
