@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 18:42:29
+ * @LastEditTime: 2022-10-02 19:04:29
  * @FilePath: \coding-challenge-frontend\src\components\WeatherDisplay\index.js
  * @Description:
  */
@@ -13,8 +13,14 @@ import WeatherCard from '../WeatherCard';
 import Skeleton from '@mui/material/Skeleton';
 import WeatherService from '../../Apis/WeatherService';
 import LocationService from '../../Apis/LocationService';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { useSelector } from 'react-redux';
 import './index.scss';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const WeatherDisplay = () => {
 
@@ -23,37 +29,44 @@ const WeatherDisplay = () => {
     const [unit, setUnit] = React.useState(true);
     const [locationLoading, setLocationLoading] = React.useState(false);
     const [cardLoading, setCardLoading] = React.useState(false);
+    const [error, setError] = React.useState({
+        isOpen: false,
+        message: ''
+    });
     const locationInfo = useSelector(state => state.location);
 
     const getRemoteData = async () => {
         if (locationInfo.lat && locationInfo.lon) {
-            setCardLoading(true);
-            setLocationLoading(true);
-            const res = await WeatherService.getWeatherByLocation(locationInfo.lat, locationInfo.lon);
-            if (res.status === 200) {
-                const weather = res.data;
-                setWeatherInfo(() => {
-                    const temp = weather.daily.slice(0, 3).map((item, index) => ({
-                        timeStamp: item.dt,
-                        weather: {
-                            ...item.weather[0],
-                            temp: item.temp
-                        }
-                    }));
-                    return temp;
+            try {
+                setCardLoading(true);
+                setLocationLoading(true);
+                const res = await WeatherService.getWeatherByLocation(locationInfo.lat, locationInfo.lon);
+                if (res.status === 200) {
+                    const weather = res.data;
+                    setWeatherInfo(() => {
+                        const temp = weather.daily.slice(0, 3).map((item, index) => ({
+                            timeStamp: item.dt,
+                            weather: {
+                                ...item.weather[0],
+                                temp: item.temp
+                            }
+                        }));
+                        return temp;
+                    });
+                }
+                setCardLoading(false);
+                const locationRes = await LocationService.getPlaceByLocation(locationInfo.lat, locationInfo.lon);
+                if (locationRes.status === 200) {
+                    const location = locationRes.data;
+                    setLocation(location.results[0].formatted);
+                }
+                setLocationLoading(false);
+            } catch(err) {
+                setError({
+                    isOpen: true,
+                    message: err.response.data.message || err.response.data.status.message
                 });
-            } else {
-                alert('request failed');
             }
-            setCardLoading(false);
-            const locationRes = await LocationService.getPlaceByLocation(locationInfo.lat, locationInfo.lon);
-            if (locationRes.status === 200) {
-                const location = locationRes.data;
-                setLocation(location.results[0].formatted);
-            } else {
-                alert('request failed');
-            }
-            setLocationLoading(false);
         }
     };
 
@@ -68,6 +81,21 @@ const WeatherDisplay = () => {
 
     return (
         <Box className='weather-display-main animate__animated animate__fadeInUp'>
+
+            <Snackbar
+                open={error.isOpen}
+                autoHideDuration={3000}
+                onClose={() => setError({isOpen: false, message: ''})}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center'
+                }}
+            >
+                <Alert onClose={() => setError({isOpen: false, message: ''})} severity="error" sx={{ width: '100%' }}>
+                    {error.message}
+                </Alert>
+            </Snackbar>
+
             <Box
                 className={`weather-display-local-mark animate__animated ${locationInfo.isLocal ? 'animate__zoomIn' : 'animate__zoomOut'}`}
             >
