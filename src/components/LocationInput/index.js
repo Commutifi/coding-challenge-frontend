@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 18:51:53
+ * @LastEditTime: 2022-10-02 19:21:40
  * @FilePath: \coding-challenge-frontend\src\components\LocationInput\index.js
  * @Description:
  */
@@ -136,7 +136,7 @@ const LocationInput = () => {
                         id="demo-simple-select"
                         value={searchMethod}
                         label="Search By"
-                        sx={{mr: 2, fontSize: matches ? '12px' : ''}}
+                        sx={{mr: 2, fontSize: matches ? '12px' : '16px'}}
                         onChange={handleSearchMethodChange}
                         size={matches ? 'small' : 'medium'}
                     >
@@ -164,12 +164,12 @@ const LocationInput = () => {
                                     value={place}
                                     inputProps={{
                                         style: {
-                                            fontSize: matches ? '12px' : ''
+                                            fontSize: matches ? '12px' : '16px'
                                         }
                                     }}
                                     InputLabelProps={{
                                         style: {
-                                            fontSize: matches ? '12px' : ''
+                                            fontSize: matches ? '12px' : '16px'
                                         }
                                     }}
                                     onChange={(e) => setPlace(e.target.value)}
@@ -186,12 +186,12 @@ const LocationInput = () => {
                                 sx={{width: '50%', mr: 1}}
                                 inputProps={{
                                     style: {
-                                        fontSize: matches ? '12px' : ''
+                                        fontSize: matches ? '12px' : '16px'
                                     }
                                 }}
                                 InputLabelProps={{
                                     style: {
-                                        fontSize: matches ? '12px' : ''
+                                        fontSize: matches ? '12px' : '16px'
                                     }
                                 }}
                                 value={location?.lon || ''}
@@ -206,12 +206,12 @@ const LocationInput = () => {
                                 sx={{width: '50%', ml: 1}}
                                 inputProps={{
                                     style: {
-                                        fontSize: matches ? '12px' : ''
+                                        fontSize: matches ? '12px' : '16px'
                                     }
                                 }}
                                 InputLabelProps={{
                                     style: {
-                                        fontSize: matches ? '12px' : ''
+                                        fontSize: matches ? '12px' : '16px'
                                     }
                                 }}
                                 value={location?.lat || ''}
