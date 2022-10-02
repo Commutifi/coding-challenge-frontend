@@ -34,6 +34,7 @@
         font-family: 'Montserrat', sans-serif;
         font-size: 40px;
         color: #424242;
+        user-select: none;
 
         @media (max-width: $screen-width-1800) {
             font-size: 35px;

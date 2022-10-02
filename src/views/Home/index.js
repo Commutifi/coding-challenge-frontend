@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:10:23
  * @LastEditors: Leo
- * @LastEditTime: 2022-09-29 16:26:22
+ * @LastEditTime: 2022-10-02 18:15:32
  * @FilePath: \coding-challenge-frontend\src\views\Home\index.js
  * @Description:
  */
@@ -17,6 +17,9 @@ const Home = () => {
         <Box className='main'>
             <LocationInput />
             <WeatherDisplay />
+            <Box sx={{fontSize: '12px'}}>
+                Made By Leo.
+            </Box>
         </Box>
     );
 };

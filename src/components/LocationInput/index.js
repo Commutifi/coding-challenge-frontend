@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 17:54:26
+ * @LastEditTime: 2022-10-02 18:21:45
  * @FilePath: \coding-challenge-frontend\src\components\LocationInput\index.js
  * @Description:
  */
@@ -111,32 +111,32 @@ const LocationInput = () => {
     };
 
     return (
-        <Box className='location-input-main'>
+        <Box className='location-input-main animate__animated animate__fadeInDown'>
 
-        <Snackbar
-            open={error}
-            autoHideDuration={2000}
-            onClose={() => setError(false)}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center'
-            }}
-        >
-            <Alert onClose={() => setError(false)} severity="warning" sx={{ width: '100%' }}>
-                Wrong location coordinates!
-            </Alert>
-        </Snackbar>
+            <Snackbar
+                open={error}
+                autoHideDuration={2000}
+                onClose={() => setError(false)}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center'
+                }}
+            >
+                <Alert onClose={() => setError(false)} severity="warning" sx={{ width: '100%' }}>
+                    Wrong location coordinates!
+                </Alert>
+            </Snackbar>
 
             <Box className='location-input-container'>
 
-                <FormControl sx={{width: '130px'}}>
+                <FormControl sx={{width: matches ? '110px' : '130px'}}>
                     <InputLabel>Search By</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={searchMethod}
                         label="Search By"
-                        sx={{mr: 2}}
+                        sx={{mr: 2, fontSize: matches ? '12px' : ''}}
                         onChange={handleSearchMethodChange}
                         size={matches ? 'small' : 'medium'}
                     >
@@ -162,6 +162,11 @@ const LocationInput = () => {
                                     label="Input some places"
                                     variant="outlined"
                                     value={place}
+                                    inputProps={{
+                                        style: {
+                                            fontSize: matches ? '12px' : ''
+                                        }
+                                    }}
                                     onChange={(e) => setPlace(e.target.value)}
                                     sx={{width: '100%'}}
                                     size={matches ? 'small' : 'medium'}
@@ -174,6 +179,11 @@ const LocationInput = () => {
                                 label="Longitude"
                                 variant="outlined"
                                 sx={{width: '50%', mr: 1}}
+                                inputProps={{
+                                    style: {
+                                        fontSize: matches ? '12px' : ''
+                                    }
+                                }}
                                 value={location?.lon || ''}
                                 size={matches ? 'small' : 'medium'}
                                 className={`animate__animated animate__faster ${shake === 'lon' ? 'animate__headShake' : ''}`}
@@ -184,6 +194,11 @@ const LocationInput = () => {
                                 label="Latitude"
                                 variant="outlined"
                                 sx={{width: '50%', ml: 1}}
+                                inputProps={{
+                                    style: {
+                                        fontSize: matches ? '12px' : ''
+                                    }
+                                }}
                                 value={location?.lat || ''}
                                 size={matches ? 'small' : 'medium'}
                                 className={`animate__animated animate__faster ${shake === 'lat' ? 'animate__headShake' : ''}`}

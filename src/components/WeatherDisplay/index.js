@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 17:20:58
+ * @LastEditTime: 2022-10-02 18:13:09
  * @FilePath: \coding-challenge-frontend\src\components\WeatherDisplay\index.js
  * @Description:
  */
@@ -67,7 +67,7 @@ const WeatherDisplay = () => {
     }, [locationInfo]);
 
     return (
-        <Box className='weather-display-main'>
+        <Box className='weather-display-main animate__animated animate__fadeInUp'>
             <Box
                 className={`weather-display-local-mark animate__animated ${locationInfo.isLocal ? 'animate__zoomIn' : 'animate__zoomOut'}`}
             >
