@@ -2,7 +2,7 @@
  * @Author: Leo
  * @Date: 2022-09-29 16:25:10
  * @LastEditors: Leo
- * @LastEditTime: 2022-10-02 18:21:45
+ * @LastEditTime: 2022-10-02 18:24:32
  * @FilePath: \coding-challenge-frontend\src\components\LocationInput\index.js
  * @Description:
  */
@@ -167,6 +167,11 @@ const LocationInput = () => {
                                             fontSize: matches ? '12px' : ''
                                         }
                                     }}
+                                    InputLabelProps={{
+                                        style: {
+                                            fontSize: matches ? '12px' : ''
+                                        }
+                                    }}
                                     onChange={(e) => setPlace(e.target.value)}
                                     sx={{width: '100%'}}
                                     size={matches ? 'small' : 'medium'}
@@ -184,6 +189,11 @@ const LocationInput = () => {
                                         fontSize: matches ? '12px' : ''
                                     }
                                 }}
+                                InputLabelProps={{
+                                    style: {
+                                        fontSize: matches ? '12px' : ''
+                                    }
+                                }}
                                 value={location?.lon || ''}
                                 size={matches ? 'small' : 'medium'}
                                 className={`animate__animated animate__faster ${shake === 'lon' ? 'animate__headShake' : ''}`}
@@ -195,6 +205,11 @@ const LocationInput = () => {
                                 variant="outlined"
                                 sx={{width: '50%', ml: 1}}
                                 inputProps={{
+                                    style: {
+                                        fontSize: matches ? '12px' : ''
+                                    }
+                                }}
+                                InputLabelProps={{
                                     style: {
                                         fontSize: matches ? '12px' : ''
                                     }
