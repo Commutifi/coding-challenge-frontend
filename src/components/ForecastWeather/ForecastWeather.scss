@@ -1,0 +1,56 @@
+@import 'styles/mixin/_media.scss';
+
+.forecast-weather {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2%;
+  row-gap: 24px;
+  @include media-sm {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  }
+
+  .day {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 10% 0;
+
+    .date {
+      position: absolute;
+      font-size: 20px;
+      top: -12px;
+      left: 0px;
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 12px 12px 12px 0;
+      width: 160px;
+      font-weight: bold;
+      text-align: center;
+      color: blue;
+    }
+
+    img {
+      width: 64px;
+    }
+
+    .temp-from-to {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .status {
+      font-size: 28px;
+      margin-top: 8px;
+    }
+    .description {
+      font-size: 18px;
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

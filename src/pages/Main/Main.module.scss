@@ -33,5 +33,22 @@
         height: 16px;
       }
     }
+
+    .result-box {
+      margin-top: 48px;
+    }
+
+    .forecast {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+
+    .loader,
+    .not-found {
+      margin: 80px auto;
+    }
+    .not-found {
+      font-size: 24px;
+    }
   }
 }
