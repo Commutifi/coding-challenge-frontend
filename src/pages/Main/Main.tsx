@@ -16,6 +16,7 @@ const Main = () => {
 	const [location, setLocation] = useState<string>('');
 	const [weatherForecast, setWeatherForecast] = useState<Array<Record<any, any>>>([]);
 	const [status, setStatus] = useState<number>(1);
+	const [firstType, setFirstType] = useState<boolean>(true);
 
 	useEffect(() => {
 		if (navigator.geolocation) {
@@ -31,7 +32,11 @@ const Main = () => {
 	}, [keyword]);
 
 	const handleInput = useMemo(
-		() => debounce((e: React.ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value), 500),
+		() =>
+			debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+				setKeyword(e.target.value);
+				setFirstType(false);
+			}, 500),
 		[]
 	);
 
@@ -48,7 +53,6 @@ const Main = () => {
 		}
 		const { city, list } = result.data;
 		setStatus(0);
-		console.log(list);
 		setLocation(`${city.name}, ${city.country}`);
 		setWeatherForecast(list);
 	};
@@ -63,10 +67,10 @@ const Main = () => {
 				{status === 0 ? (
 					<>
 						<div className='result-box'>
-							<TodayWeather location={location} weather={weatherForecast?.[0]} />
+							<TodayWeather location={location} weather={weatherForecast?.[0]} color={firstType ? 'gray' : ''} />
 						</div>
 						<div className='forecast'>
-							<ForecastWeather list={weatherForecast} />
+							<ForecastWeather list={weatherForecast} color={firstType ? 'gray' : ''} />
 						</div>
 					</>
 				) : status === 1 ? (

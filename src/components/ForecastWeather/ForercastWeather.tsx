@@ -1,53 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'app/store';
+import { setTemperatureType } from 'redux/slices/temperatureType';
+import { convertTemperature } from 'utils';
 import { getColorFromTemperature } from 'utils';
 import './ForecastWeather.scss';
 
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const days = ['Today', 'Tomorrow', 'Day after tomorrow'];
 
 interface Props {
-	list: Array<any>;
+	list?: Array<any>;
+	color?: string;
 }
 
-const ForercastWeather = ({ list }: Props) => {
-	const [temperatures, setTemperatures] = useState<Array<Record<any, any>>>([]);
-	useEffect(() => {
-		let temp = new Array<Record<any, any>>();
-		for (let item of list) {
-			temp.push({ temp: item.temp.min, unit: '°F' });
-			temp.push({ temp: item.temp.max, unit: '°F' });
-		}
-		setTemperatures(temp);
-	}, [list]);
-	const weekday = new Date().getDay();
-
-	const handleClick = (index: number) => {
-		let temp = temperatures;
-		if (temperatures[index].unit === '°F') {
-			temp[index] = { temp: ((temperatures[index].temp - 32) * 5) / 9, unit: '°C' };
-		} else {
-			temp[index] = { temp: (temperatures[index].temp * 9) / 5 + 32, unit: '°F' };
-		}
-		setTemperatures([...temp]);
-	};
+const ForercastWeather = ({ list, color }: Props) => {
+	const dispatch = useDispatch();
+	const type = useSelector((state: RootState) => state.temperatureType.type);
 	return (
 		<div className='forecast-weather'>
-			{list.map((weather, index: number) => (
+			{list?.map((weather, index: number) => (
 				<div className='day' key={index}>
-					<span className='date'>{weekdays[(weekday + index) % 7]}</span>
+					<span className='date'>{days[index]}</span>
 					<img src={`https://openweathermap.org/img/w/${weather?.weather?.[0].icon}.png`} alt='' />
 					<span className='temp-from-to'>
 						<span
-							onClick={() => handleClick(index * 2)}
-							style={{ color: `${getColorFromTemperature(weather?.temp?.min)}` }}
+							onClick={() => dispatch(setTemperatureType(type === 'F' ? 'C' : 'F'))}
+							style={{ color: `${color === '' ? getColorFromTemperature(weather?.temp?.min) : '#5C5C5C'}` }}
 						>
-							{temperatures?.[index * 2]?.temp.toFixed(2) + temperatures?.[index * 2]?.unit}
+							{convertTemperature(weather.temp.min, type)}
 						</span>{' '}
 						-{' '}
 						<span
-							onClick={() => handleClick(index * 2 + 1)}
-							style={{ color: `${getColorFromTemperature(weather?.temp?.max)}` }}
+							onClick={() => dispatch(setTemperatureType(type === 'F' ? 'C' : 'F'))}
+							style={{ color: `${color === '' ? getColorFromTemperature(weather?.temp?.max) : '#5C5C5C'}` }}
 						>
-							{temperatures?.[index * 2 + 1]?.temp.toFixed(2) + temperatures?.[index * 2 + 1]?.unit}
+							{convertTemperature(weather.temp.max, type)}
 						</span>
 					</span>
 					<span className='status'>{weather?.weather?.[0].main}</span>

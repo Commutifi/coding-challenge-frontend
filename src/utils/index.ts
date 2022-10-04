@@ -16,3 +16,8 @@ export const getColorFromTemperature = (degree: number) => {
 	if (degree < 59) return 'blue';
 	return 'yellow';
 };
+
+export const convertTemperature = (degree: number, unit: string) => {
+	if (unit === 'F') return degree.toFixed(2) + '°F';
+	return (((degree - 32) * 5) / 9).toFixed(2) + '°C';
+};

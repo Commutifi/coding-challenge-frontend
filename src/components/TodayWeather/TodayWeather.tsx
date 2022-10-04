@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'app/store';
+import { setTemperatureType } from 'redux/slices/temperatureType';
+import { convertTemperature } from 'utils';
 import { getColorFromTemperature } from 'utils';
 import { ReactComponent as SunRiseIcon } from 'icons/sun-rise.svg';
 import { ReactComponent as SunSetIcon } from 'icons/sun-set.svg';
@@ -8,6 +11,7 @@ interface Props {
 	location?: string;
 	population?: number;
 	weather?: Record<any, any>;
+	color?: string;
 }
 
 const months = [
@@ -27,30 +31,22 @@ const months = [
 
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-const TodayWeather = ({ location, weather }: Props) => {
-	const [currentTemp, setCurrentTemp] = useState<Record<any, any>>({ temp: 0, unit: '°F' });
+const TodayWeather = ({ location, weather, color }: Props) => {
 	const today = new Date();
 	const month = today.getMonth();
 	const day = today.getDay();
 	const date = today.getDate();
 	const sunset = new Date(weather?.sunset * 1000).toLocaleTimeString().slice(0, 4);
 	const sunrise = new Date(weather?.sunrise * 1000).toLocaleTimeString().slice(0, 4);
-	useEffect(() => {
-		setCurrentTemp({ temp: weather?.temp.day, unit: '°F' });
-	}, [weather]);
-	const handleTempClick = () => {
-		if (currentTemp.unit === '°F') {
-			setCurrentTemp({ temp: ((currentTemp.temp - 32) * 5) / 9, unit: '°C' });
-		} else {
-			setCurrentTemp({ temp: (currentTemp.temp * 9) / 5 + 32, unit: '°F' });
-		}
-	};
+
+	const dispatch = useDispatch();
+	const type = useSelector((state: RootState) => state.temperatureType.type);
 
 	return (
 		<div className='today-weather'>
 			<div className='day-info'>
 				<h1 className='location'>{location}</h1>
-				<h3 className='date'>{weekdays[day] + ' ' + date + ' ' + months[month]}</h3>
+				<h3 className='date'>{weekdays[day] + ' ' + date + 'th ' + months[month]}</h3>
 			</div>
 			<div className='weather-info'>
 				<div className='status-bar'>
@@ -74,10 +70,10 @@ const TodayWeather = ({ location, weather }: Props) => {
 					<div className='left-panel'>
 						<span
 							className='temperature'
-							style={{ color: `${getColorFromTemperature(weather?.temp.day)}` }}
-							onClick={handleTempClick}
+							style={{ color: `${color === '' ? getColorFromTemperature(weather?.temp.day) : '#5C5C5C'}` }}
+							onClick={() => dispatch(setTemperatureType(type === 'F' ? 'C' : 'F'))}
 						>
-							{currentTemp.temp.toFixed(2) + currentTemp.unit}
+							{convertTemperature(weather?.temp.day, type)}
 						</span>
 						<span className='description'>{weather?.weather?.[0].main + ', ' + weather?.weather?.[0].description}</span>
 					</div>
