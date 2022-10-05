@@ -1,6 +1,7 @@
 # Weather Application
 
 This is a simple web application for users to get weather forecast of a given area using OpenWeatherMap API.
+
 Demo can be found <a href="https://demo-weather-application.netlify.app/">here</a>
 
 # Getting Started with Create React App
