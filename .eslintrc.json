@@ -1,0 +1,123 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"]
+    }
+  ],
+  "rules": {
+    "quotes": ["warn", "single"],
+    "semi": ["error", "always"],
+    "for-direction": "error",
+    "no-cond-assign": ["error", "always"],
+    "no-duplicate-imports": "warn",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "warn", // https://eslint.org/docs/rules/no-template-curly-in-string
+    "no-unmodified-loop-condition": "warn", // https://eslint.org/docs/rules/no-unmodified-loop-condition
+    "no-unreachable-loop": "error", // https://eslint.org/docs/rules/no-unreachable-loop
+    "no-use-before-define": "warn", // https://eslint.org/docs/rules/no-use-before-define
+    "block-scoped-var": "error", // https://eslint.org/docs/rules/block-scoped-var
+    "curly": "warn", // https://eslint.org/docs/rules/curly
+    "default-case": "warn", // https://eslint.org/docs/rules/default-case
+    "default-case-last": "error", // https://eslint.org/docs/rules/default-case-last
+    "default-param-last": "error", // https://eslint.org/docs/rules/default-param-last
+    "eqeqeq": "error", // https://eslint.org/docs/rules/eqeqeq
+    "id-denylist": [1, "w"], // This rule disallows specified identifiers in assignments and function definitions // https://eslint.org/docs/rules/id-denylist
+    "no-alert": "warn", // https://eslint.org/docs/rules/no-alert
+    "no-array-constructor": "error", // https://eslint.org/docs/rules/no-array-constructor
+    "no-console": "warn", // https://eslint.org/docs/rules/no-console
+    "no-else-return": "error", // https://eslint.org/docs/rules/no-else-return
+    "no-eval": "error", //https://eslint.org/docs/rules/no-eval
+    "no-floating-decimal": "error", // https://eslint.org/docs/rules/no-floating-decimal
+    "no-implicit-coercion": "error", // https://eslint.org/docs/rules/no-implicit-coercion
+    "no-implied-eval": "error", // https://eslint.org/docs/rules/no-implied-eval
+    "no-lonely-if": "error", // https://eslint.org/docs/rules/no-lonely-if
+    "no-mixed-operators": "warn", // https://eslint.org/docs/rules/no-mixed-operators
+    "no-nested-ternary": "warn", // https://eslint.org/docs/rules/no-nested-ternary
+    "no-param-reassign": "error", //https://eslint.org/docs/rules/no-param-reassign
+    "no-plusplus": [
+      // https://eslint.org/docs/rules/no-plusplus
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-return-assign": "error", //https://eslint.org/docs/rules/no-return-assign
+    "no-unneeded-ternary": "error", // https://eslint.org/docs/rules/no-unneeded-ternary
+    "no-useless-concat": "error", // https://eslint.org/docs/rules/no-useless-concat
+    "no-useless-return": "error", // https://eslint.org/docs/rules/no-useless-return
+    "no-var": "warn", // https://eslint.org/docs/rules/no-var
+    "prefer-const": "error", // https://eslint.org/docs/rules/prefer-const
+    "arrow-parens": "error", // https://eslint.org/docs/rules/arrow-parens
+    "arrow-spacing": "error", // https://eslint.org/docs/rules/arrow-spacing
+    "brace-style": "error", // https://eslint.org/docs/rules/brace-style
+    "no-trailing-spaces": "error", // https://eslint.org/docs/rules/no-trailing-spaces
+    "no-multiple-empty-lines": [
+      // https://eslint.org/docs/rules/no-multiple-empty-lines
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 0
+      }
+    ],
+    "no-multi-spaces": "error", // https://eslint.org/docs/rules/no-multi-spaces
+    "no-empty-pattern": "warn",
+    "react/display-name": "off",
+    "@typescript-eslint/ban-types": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/no-unresolved": "error",
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "object",
+          "type",
+          "sibling"
+        ]
+      }
+    ],
+    "import/export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
+    "import/namespace": "warn"
+  }
+}
