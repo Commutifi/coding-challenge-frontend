@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState } from "react";
 
 const defaultState = { location: [40.7648, -73.9808] };
 
@@ -22,15 +22,6 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       {children}
     </LocationContext.Provider>
   );
-}
-
-export function useLocation() {
-  const context = useContext(LocationContext);
-
-  if (!context)
-    throw new Error("useLocation must be used inside LocationProvider");
-
-  return context;
 }
 
 export default LocationContext;
