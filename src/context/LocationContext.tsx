@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-const defaultState = { location: [40.7648, -73.9808] };
+const defaultState = { lon: -123.10071939, lat: -49.226465 };
 
 export type LocationType = {
   lon: number;

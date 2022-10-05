@@ -9,8 +9,8 @@ import Input from "../components/input";
 
 function App() {
   const locationContext = useContext(LocationContext);
-  const location = useLocation(locationContext?.location);
-  const weather = useWeather(locationContext?.location);
+  const location = useLocation(locationContext && locationContext.location);
+  const weather = useWeather(locationContext && locationContext.location);
 
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition((loc) => {
