@@ -49,7 +49,7 @@ const ForecastShow = () => {
   };
 
   return (
-    <div className='w-full xl:w-[70%] h-full py-16 px-5 md:px-10 lg:px-20 flex flex-col'>
+    <div className='w-full xl:w-[70%] h-full pt-16 md:py-16 px-5 md:px-10 lg:px-20 flex flex-col'>
       <div className='flex justify-between items-center'>
         <Tabs />
 
@@ -70,10 +70,10 @@ const ForecastShow = () => {
       )}
 
       {bool_exist && (
-        <div className='mt-auto text-white flex items-center gap-4'>
+        <div className='h-full md:h-fit md:mt-auto text-white flex flex-wrap items-center gap-4'>
           <span
             onClick={() => setFahrenheit(!fahrenheit)}
-            className='cursor-pointer font-bold text-[56px] xl:text-[82px]'
+            className='h-fit cursor-pointer font-bold w-[150px] text-[56px] xl:text-[82px] order-1 md:order-1'
           >
             <span
               className={`${
@@ -91,11 +91,11 @@ const ForecastShow = () => {
             <sup>o</sup>
             {fahrenheit ? 'F' : 'C'}
           </span>
-          <p className='text-[36px] xl:text-[42px] font-semibold max-w-[240px] truncate pl-4'>
+          <p className='mt-[200px] md:mt-0 h-fit text-[36px] xl:text-[42px] font-semibold max-w-[240px] truncate pl-4 order-3 md:order-2'>
             {location?.location.split(',')[0]}
             <br />
           </p>
-          <div className='flex flex-col items-center'>
+          <div className='h-fit flex flex-col items-center order-2 md:order-3'>
             <img
               className='translate-y-1'
               src={`https://openweathermap.org/img/w/${forecasts[date].weather[0].icon}.png`}

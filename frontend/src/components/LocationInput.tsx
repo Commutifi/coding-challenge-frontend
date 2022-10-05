@@ -49,7 +49,7 @@ const LocationInput = () => {
           className='fixed w-screen h-screen left-0 top-0 right-0'
         />
       )}
-      <div className='w-full flex justify-between relative backdrop-blur-md px-12 z-10'>
+      <div className='h-auto w-full flex justify-between relative backdrop-blur-md px-12 z-10'>
         <input
           autoComplete='off'
           name='keyword'
@@ -64,7 +64,7 @@ const LocationInput = () => {
         <ul
           className={`${
             focused ? 'block' : 'hidden'
-          } cursor-pointer absolute top-[32px] xl:top-[42px] w-[190px] xl:w-[234px] bg-white max-h-[190px] overflow-y-scroll`}
+          } cursor-pointer absolute top-[32px] xl:top-[42px] w-[250px] md:w-[190px] xl:w-[234px] bg-white max-h-[140px] md:max-h-[190px] overflow-y-scroll`}
         >
           {suggestions.map((elem, index) => (
             <li
