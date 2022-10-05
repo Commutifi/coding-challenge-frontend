@@ -1,32 +1,35 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.scss";
 import LocationContext from "../context/LocationContext";
 import useLocation from "../hooks/useLocation";
 import useWeather from "../hooks/useWeather";
 
 // Components
-import Input from "../components/input";
+import Search from "../components/search";
 
 function App() {
+  const [isLocal, setIsLocal] = useState(true);
   const locationContext = useContext(LocationContext);
   const location = useLocation(locationContext && locationContext.location);
   const weather = useWeather(locationContext && locationContext.location);
 
   useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition((loc) => {
-      if (locationContext) {
-        locationContext.setLocation({
-          lon: loc.coords.longitude,
-          lat: loc.coords.latitude,
-        });
-      }
-    });
-  }, []);
+    if (isLocal) {
+      window.navigator.geolocation.getCurrentPosition((loc) => {
+        if (locationContext) {
+          locationContext.setLocation({
+            lon: loc.coords.longitude,
+            lat: loc.coords.latitude,
+          });
+        }
+      });
+    }
+  }, [isLocal]);
 
   useEffect(() => {
-    // if (location.data) {
-    //   console.log(location.data["results"][0]["components"]);
-    // }
+    if (location.data) {
+      console.log(location.data["results"][0]["formatted"]);
+    }
     // if (weather.data) {
     //   console.log(weather.data["weather"]);
     // }
@@ -34,13 +37,14 @@ function App() {
 
   return (
     <div className="App">
+      <Search setIsLocal={setIsLocal} />
       <h1>Location</h1>
+
       <h2>
         {location.data &&
           `
+          ${location.data["results"][0]["components"]["city"]},
           ${location.data["results"][0]["components"]["country"]}
-          ${location.data["results"][0]["components"]["state"]}
-          ${location.data["results"][0]["components"]["county"]} 
           `}
       </h2>
       <h3>
@@ -51,7 +55,6 @@ function App() {
         `}
       </h3>
       <hr />
-      <Input />
     </div>
   );
 }

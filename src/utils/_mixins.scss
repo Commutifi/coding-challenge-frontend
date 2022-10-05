@@ -1,0 +1,71 @@
+@import "./_breakpoints.scss";
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px') {
+      @content;
+  }
+}
+
+@mixin bkg-img-transition(){  
+  position: relative;  
+  z-index: 100; 
+  &:before, &:after {
+    background-size: cover;  
+    content: '';    
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;   
+    width: 100%;    
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 100px;
+  }
+  &:before {    
+    z-index: -101;
+    background-image: linear-gradient(116.96deg, #4CFF8E 15.31%, #87EFFF 82.69%);    
+  }
+  &:after {    
+    z-index: -100;
+    opacity: 0;
+    background-size: 120%;
+    background-position: center;
+    background-image: linear-gradient(white, white), linear-gradient(116.96deg, #4CFF8E 15.31%, #87EFFF 82.69%);    
+    background-clip: padding-box, border-box;
+    border: solid 1px transparent;
+    background-origin: padding-box;
+  }
+  &:hover {
+     &:after{
+       opacity: 1; 
+     }
+  }  
+}
