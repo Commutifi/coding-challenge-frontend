@@ -49,13 +49,13 @@ const ForecastShow = () => {
   };
 
   return (
-    <div className='col-span-7 h-full py-16 px-20 flex flex-col'>
+    <div className='w-full xl:w-[70%] h-full py-16 px-5 md:px-10 lg:px-20 flex flex-col'>
       <div className='flex justify-between items-center'>
         <Tabs />
 
         <img
           onClick={changeLanguage}
-          className='translate-x-8 cursor-pointer hover:scale-110 transition-all duration-150 w-7 h-7 xl:w-9 xl:h-9'
+          className='md:translate-x-8 cursor-pointer hover:scale-110 transition-all duration-150 w-7 h-7 xl:w-9 xl:h-9'
           src={i18nextSVG}
           alt='i18n'
           width={36}

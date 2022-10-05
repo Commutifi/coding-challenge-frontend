@@ -21,7 +21,7 @@ const HistoryList = () => {
   };
 
   return (
-    <ul className='h-[235px] py-5 text-white/60 backdrop-blur-md px-12'>
+    <ul className='h-[150px] lg:h-[235px] py-5 text-white/60 backdrop-blur-md px-12'>
       {history.length > 0 &&
         history.map((location, index) => (
           <li

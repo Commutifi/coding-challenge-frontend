@@ -1,4 +1,4 @@
-const GEO_API_KEY = '066c930b1b9f4d9bb89733fb93e9827b';
+const GEO_API_KEY = 'd0449532b5a64852aada3768d55507d3';
 const WEATHER_API_KEY = 'd94bcd435b62a031771c35633f9f310a';
 
 module.exports = {

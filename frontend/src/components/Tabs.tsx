@@ -15,7 +15,7 @@ const Tabs = () => {
         onClick={() => dispatch(setDate(0))}
         className={`${
           date === 0 ? 'scale-105 font-semibold text-white' : 'text-white/80'
-        } hover:text-white duration-150 text-md xl:text-base`}
+        } hover:text-white duration-150 text-sm xl:text-base`}
       >
         {t('today')}
       </span>
@@ -23,7 +23,7 @@ const Tabs = () => {
         onClick={() => dispatch(setDate(1))}
         className={`${
           date === 1 ? 'scale-105 font-semibold text-white' : 'text-white/80'
-        } hover:text-white duration-150 text-md xl:text-base`}
+        } hover:text-white duration-150 text-sm xl:text-base`}
       >
         {t('tomorrow')}
       </span>
@@ -31,7 +31,7 @@ const Tabs = () => {
         onClick={() => dispatch(setDate(2))}
         className={`${
           date === 2 ? 'scale-105 font-semibold text-white' : 'text-white/80'
-        } hover:text-white duration-150 text-md xl:text-base`}
+        } hover:text-white duration-150 text-sm xl:text-base`}
       >
         +2
       </span>
