@@ -6,18 +6,14 @@ function App() {
   const locationContext = useContext(LocationContext);
 
   useEffect(() => {
-    const grabLocalLocation = (loc: {
-      coords: { longitude: number; latitude: number };
-    }) => {
+    window.navigator.geolocation.getCurrentPosition((loc) => {
       if (locationContext) {
         locationContext.setLocation({
           lon: loc.coords.longitude,
           lat: loc.coords.latitude,
         });
       }
-    };
-
-    window.navigator.geolocation.getCurrentPosition(grabLocalLocation);
+    });
   }, []);
 
   return (
