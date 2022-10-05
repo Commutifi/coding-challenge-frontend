@@ -1,0 +1,7 @@
+const GEO_API_KEY = '066c930b1b9f4d9bb89733fb93e9827b';
+const WEATHER_API_KEY = 'd94bcd435b62a031771c35633f9f310a';
+
+module.exports = {
+  GEO_API_KEY,
+  WEATHER_API_KEY,
+};
