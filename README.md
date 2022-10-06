@@ -4,12 +4,12 @@ This is responsive microsite that display the weather forecast at the locations 
 
 ## Functional requirements
 
-- Has a simple onboarding screen that will trigger the weather forecast base on the geolocation API of the browser. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
-- Provide an user input where the user can change the location. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
-- Forecasts for: today, tomorrow and the day after tomorrow should be shown. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
-- For temperatures below 15ºC, blue color should be used, for temperatures above 35ºC, red should be used and yellow should be used for other temperatures. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
-- When there is no chosen location, gray should be used . If the user clicks on any temperature, the temperatures should be changed from Celsius to Fahrenheit or from Fahrenheit to Celsius. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
-- The color defined here can be use for the text color or the background, be creative. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' width={15} height={15}></img>
+- Has a simple onboarding screen that will trigger the weather forecast base on the geolocation API of the browser. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
+- Provide an user input where the user can change the location. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
+- Forecasts for: today, tomorrow and the day after tomorrow should be shown. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
+- For temperatures below 15ºC, blue color should be used, for temperatures above 35ºC, red should be used and yellow should be used for other temperatures. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
+- When there is no chosen location, gray should be used . If the user clicks on any temperature, the temperatures should be changed from Celsius to Fahrenheit or from Fahrenheit to Celsius. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
+- The color defined here can be use for the text color or the background, be creative. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
 - Components should flexible enough to display the day above or under the temperature.`Requirement not clear :(`
 
 ### You must give me bonus 
