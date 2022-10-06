@@ -10,7 +10,7 @@ const WeatherDetail = () => {
   const bool_exist = forecasts.length !== 0;
 
   return (
-    <div className='hidden md:block w-1/3 lg:w-fit lg:border-t-white/60 text-white/70 px-10 backdrop-blur-md'>
+    <div className='hidden md:block w-[40%] lg:w-full lg:border-t-white/60 text-white/70 pr-10 lg:px-10 backdrop-blur-md'>
       <div className='lg:border-t-[1px] py-6 '>
         <h3 className='text-white/90'>{t('heading')}</h3>
         <p className='mt-4 flex justify-between text-sm xl:text-base'>

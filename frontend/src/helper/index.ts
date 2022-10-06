@@ -10,7 +10,6 @@ const filterLocations = (arr: Array<any>) => {
 
 const addMoreInfo = (arr: Array<any>, location: string) => {
   return arr.map((elem) => {
-    console.log(elem, location);
     return {
       ...elem,
       temp: {

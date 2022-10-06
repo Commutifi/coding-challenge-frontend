@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { getForecastInfo, setDate } from '../redux/slices/forecastSlice';
 import { AppDispatch, RootState } from '../redux/store';
 
@@ -10,6 +11,7 @@ import Tabs from './Tabs';
 
 // load image resource
 import i18nextSVG from '../assets/i18n.webp';
+import { setLocation } from '../redux/slices/locationSlice';
 
 const languages = ['en', 'fr'];
 
@@ -25,6 +27,50 @@ const ForecastShow = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
+  const getInitLocation = async (lat: number, lon: number) => {
+    const stream_result = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+    );
+    const result = await stream_result.json();
+    const place_name = result.display_name;
+    dispatch(setLocation({ location: place_name, lat, lng: lon }));
+  };
+
+  const onGeoSuccess = (position: any) => {
+    const { latitude, longitude } = position.coords;
+    getInitLocation(latitude, longitude);
+  };
+
+  const onGeoError = (error: any) => {
+    let detailError;
+
+    if (error.code === error.PERMISSION_DENIED) {
+      detailError = 'User denied the request for Geolocation.';
+    } else if (error.code === error.POSITION_UNAVAILABLE) {
+      detailError = 'Location information is unavailable.';
+    } else if (error.code === error.TIMEOUT) {
+      detailError = 'The request to get user location timed out.';
+    } else if (error.code === error.UNKNOWN_ERROR) {
+      detailError = 'An unknown error occurred.';
+    }
+
+    toast.error(detailError);
+  };
+
+  useEffect(() => {
+    const geolocation = navigator.geolocation;
+    let options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    if (geolocation) {
+      geolocation.getCurrentPosition(onGeoSuccess, onGeoError, options);
+    } else {
+      toast.warn('Geolocation is not supported by this browser.');
+    }
+  }, []);
+
   useEffect(() => {
     if (location === null) {
       return;
@@ -39,6 +85,9 @@ const ForecastShow = () => {
   }, [location]);
 
   useEffect(() => {
+    if (location === null) {
+      return;
+    }
     setFahrenheit(false);
     dispatch(setDate(0));
   }, [location]);
@@ -55,7 +104,7 @@ const ForecastShow = () => {
 
         <img
           onClick={changeLanguage}
-          className='md:translate-x-8 cursor-pointer hover:scale-110 transition-all duration-150 w-7 h-7 xl:w-9 xl:h-9'
+          className='lg:translate-x-8 cursor-pointer hover:scale-110 transition-all duration-150 w-7 h-7 xl:w-9 xl:h-9'
           src={i18nextSVG}
           alt='i18n'
           width={36}
@@ -73,7 +122,7 @@ const ForecastShow = () => {
         <div className='h-full md:h-fit md:mt-auto text-white flex flex-wrap items-center gap-4'>
           <span
             onClick={() => setFahrenheit(!fahrenheit)}
-            className='h-fit cursor-pointer font-bold w-[150px] text-[56px] xl:text-[82px] order-1 md:order-1'
+            className='h-fit cursor-pointer font-bold text-[56px] xl:text-[82px] order-1 md:order-1'
           >
             <span
               className={`${

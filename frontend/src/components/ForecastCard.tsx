@@ -9,7 +9,7 @@ const ForecastCard = () => {
       <ForecastShow />
 
       <div className='flex lg:flex-col lg:pt-10 w-full lg:w-[30%] lg:max-h-full bg-transparent shadow-2xl'>
-        <div className='w-full lg:w-fit'>
+        <div className='w-full'>
           <LocationInput />
 
           <HistoryList />

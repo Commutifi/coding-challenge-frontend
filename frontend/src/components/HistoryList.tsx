@@ -27,11 +27,9 @@ const HistoryList = () => {
           <li
             onClick={() => clickHandler(index, location)}
             key={(Math.random() * 40).toString().slice(0, 10)}
-            className='group cursor-pointer text-xs xl:text-sm pb-2 relative flex items-center justify-between'
+            className='group cursor-pointer text-xs xl:text-sm pb-2 relative flex items-center justify-between truncate max-w-full'
           >
-            {`${location[0].location.slice(0, 25)}${
-              location[0].location.length > 25 ? '...' : ''
-            }`}
+            {location[0].location}
             {index === 0 && (
               <span className='absolute top-1/2 -translate-y-[80%] -left-5 flex h-3 w-3'>
                 <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75'></span>
