@@ -1,4 +1,4 @@
-# Weather Forecast Application
+# Weather Forecast Microsite
 
 ## Find the current weather and 2 days forecast of your current location or any city on Earth with this simple microsite.
 
