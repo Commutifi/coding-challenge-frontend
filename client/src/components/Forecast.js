@@ -11,7 +11,7 @@ function Forecast() {
 
     function handleTemperatureClick(mode) {
         const newScale = (mode.scale === 'fahrenheit') ? 'celcius' : 'fahrenheit'
-        const convertedTemp = (newScale === 'fahrenheit') ? helperFunctions.cToF : helperFunctions.fToC
+        const temperatureConvertion = (newScale === 'fahrenheit') ? helperFunctions.cToF : helperFunctions.fToC
         const newPrefix = (newScale === 'fahrenheit') ? 'F' : 'C'
 
         setMode({
@@ -21,8 +21,8 @@ function Forecast() {
 
         const data = weatherData.map((data) => {
             const obj = { ...data }
-            obj.weather.day_temp = convertedTemp(obj.weather.day_temp)
-            obj.weather.night_temp = convertedTemp(obj.weather.night_temp)
+            obj.weather.day_temp = temperatureConvertion(obj.weather.day_temp)
+            obj.weather.night_temp = temperatureConvertion(obj.weather.night_temp)
 
             return obj
         })

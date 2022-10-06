@@ -10,14 +10,15 @@ function Header() {
             return Object.keys(currentLocation).map((key, index) => {
                 if (currentLocation[key]) {
                     return (
-                        <div>{currentLocation[key]}</div>
+                        <div key={index}>{currentLocation[key]}</div>
                     )
                 } else {
-                    return <></>
+                    return null
                 }
             })
         }
 
+        return <></>
     }
 
     return (

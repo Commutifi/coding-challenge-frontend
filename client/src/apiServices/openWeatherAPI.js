@@ -14,20 +14,24 @@ class OpenWeatherAPI {
     async initialize() {
         const { geolocation } = this.navigator
         return new Promise((resolve, reject) => {
-            geolocation.getCurrentPosition(async (position, error) => {
-                if (error) {
-                    console.error(error)
-                }
+            if (geolocation) {
+                geolocation.getCurrentPosition(async (position, error) => {
+                    if (error) {
+                        console.error(error)
+                    }
 
-                this.lon = position.coords.longitude
-                this.lat = position.coords.latitude
-                try {
-                    const response = await this.fetchThreeDayForcast(this.lon, this.lat)
-                    resolve(response)
-                } catch (err) {
-                    console.error(err)
-                }
-            })
+                    this.lon = position.coords.longitude
+                    this.lat = position.coords.latitude
+                    try {
+                        const response = await this.fetchThreeDayForcast(this.lon, this.lat)
+                        resolve(response)
+                    } catch(err) {
+                        console.error(err)
+                    }
+                })
+            } else {
+                reject('geo location disabled')
+            }
         })
     }
 

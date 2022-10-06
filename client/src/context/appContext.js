@@ -21,6 +21,9 @@ export const AppContextProvider = (props) => {
                 setWeatherData(data)
                 setCurrentLocation(openWeatherAPI.getCurrentLocation())
             })
+            .catch(() => {
+
+            })
     }, [])
 
     const contextData = {

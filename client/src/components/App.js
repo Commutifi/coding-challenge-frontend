@@ -6,14 +6,13 @@ import Header from '../components/Header'
 import '../styles/App.scss';
 
 function App() {
-  const { currentLocation } = UseAppContext()
-
+  const appContext = UseAppContext()
   return (
     <main className='main'>
       <section className='main__search'>
         <Search />
       </section>
-      {!currentLocation ? <div className='main__warning'>PLEASE ENABLE YOUR CHROME GEOLOCATION SERVICE</div> : null}
+      {!appContext.currentLocation ? <div className='main__warning'>PLEASE ENABLE YOUR CHROME GEOLOCATION SERVICE</div> : <></>}
       <section className='main__location'>
         <Header />
       </section>
