@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { UseAppContext } from '../context/appContext';
-import Input from '../components/Input'
-import Card from '../components/Card'
+import Search from './Search'
 import Forecast from '../components/Forecast'
+import Header from '../components/Header'
 import '../styles/App.scss';
 
 function App() {
-  const appContext = UseAppContext()
-
-
-  useEffect(() => {
-
-  })
-  console.log('weatherData', appContext.weatherData)
+  const { currentLocation } = UseAppContext()
 
   return (
     <main className='main'>
-      <section className='main__input'>
-        <Input options={[1, 2]} />
+      <section className='main__search'>
+        <Search />
+      </section>
+      {!currentLocation ? <div className='main__warning'>PLEASE ENABLE YOUR CHROME GEOLOCATION SERVICE</div> : null}
+      <section className='main__location'>
+        <Header />
       </section>
       <section className='main__forecast'>
         <Forecast />
       </section>
-      
     </main>
   )
 }

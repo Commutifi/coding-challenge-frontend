@@ -1,0 +1,31 @@
+import React from 'react';
+import { UseAppContext } from '../context/appContext';
+import '../styles/Header.scss';
+
+function Header() {
+    const { weatherData, currentLocation } = UseAppContext()
+
+    function renderLocation() {
+        if (currentLocation) {
+            return Object.keys(currentLocation).map((key, index) => {
+                if (currentLocation[key]) {
+                    return (
+                        <div>{currentLocation[key]}</div>
+                    )
+                } else {
+                    return <></>
+                }
+            })
+        }
+
+    }
+
+    return (
+        <div className='header'>
+            {currentLocation ? <div>{weatherData.length} DAY FORCAST</div> : <></>}
+            {renderLocation()}
+        </div>
+    )
+}
+
+export default Header;

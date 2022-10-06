@@ -2,6 +2,8 @@
 
 .card {
     @include flex-align-center($direction: row);
+    background-color: transparent !important; 
+    border: 3px solid black !important;
     margin: 1rem;
     padding: 1rem;
     flex-basis: 100%;
@@ -15,10 +17,21 @@
     @include flex-align-center($direction: row);
 
     &>* {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flex-align-center($direction: column);
         margin: 0.5rem;
+    }
+}
+
+.card_night_item, .card_day_item {
+    &.red {
+        color: red;
+    }
+
+    &.yellow {
+        color: yellow;
+    }
+
+    &.blue {
+        color: blue;
     }
 }

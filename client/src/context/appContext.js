@@ -1,6 +1,8 @@
 import React, { useEffect, createContext, useContext, useState } from 'react';
-import { openWeatherAPI } from '../services/openWeatherAPI';
-import { openCageAPI } from '../services/openCageAPI'
+import { openWeatherAPI } from '../apiServices/openWeatherAPI';
+import { openCageAPI } from '../apiServices/openCageAPI'
+import { cToF, fToC } from '../helpers/temperatureConvertion';
+import toggleTemperatureColor from '../helpers/temperatureColorToggle'
 
 const AppContext = createContext(undefined);
 
@@ -11,25 +13,31 @@ export const UseAppContext = () => {
 export const AppContextProvider = (props) => {
     const [weatherData, setWeatherData] = useState([]);
     const [locationOptions, setLocationOptions] = useState([])
-    const globalValue = "Global Value"
+    const [currentLocation, setCurrentLocation] = useState(null)
 
     useEffect(() => {
-        openWeatherAPI.initialize().then((data) => {
-            console.log('DATA FROM APPCONTEXT', data)
-            setWeatherData(data)
-        })
-
+        openWeatherAPI.initialize()
+            .then((data) => {
+                setWeatherData(data)
+                setCurrentLocation(openWeatherAPI.getCurrentLocation())
+            })
     }, [])
-    // console.log('locationOptions', locationOptions)
-    console.log('weatherData', weatherData)
 
     const contextData = {
         weatherData,
         setWeatherData,
-        setLocationOptions,
         locationOptions,
-        global: {
-            globalValue
+        setLocationOptions,
+        currentLocation,
+        setCurrentLocation,
+        helperFunctions: {
+            cToF,
+            fToC,
+            toggleTemperatureColor,
+        },
+        api: {
+            openCageAPI,
+            openWeatherAPI
         }
     };
 

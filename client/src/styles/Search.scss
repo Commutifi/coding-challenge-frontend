@@ -1,0 +1,29 @@
+.search {
+    width: 30%;
+}
+
+.search__input {
+    width: 100%;
+    border-radius: 3px;
+    background: #8cafff;
+    outline: none;
+}
+
+.search__options {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: #8cafff;
+
+    &.hidden {
+        visibility: hidden;
+    }
+}
+
+.options__item {
+    &:hover {
+        background-color: #417abb;
+        cursor: pointer;
+    }
+}
