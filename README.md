@@ -30,6 +30,13 @@ because I did
 * Localization: support for multiple languages, you can add translation files and simply add to src/assets/locale/[country_code]
 * Backend: mcache for get requests, protect API_KEYS
 
+# Researches I have done
+
+`To get clear image about microsites`
+
+- https://contently.com/2015/04/09/what-the-hell-is-a-microsite-and-why-do-i-need-one/
+- https://www.bluleadz.com/blog/microsite-vs-website-what-is-the-difference
+
 # Stack Used
 
 `Node v16.15.1 React v18.2.0 Typescript v4.4.2`
