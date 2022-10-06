@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { AppContextProvider } from './context/appContext';
-import App from './components/App';
+import { AppContextProvider } from '../context/appContext';
+import App from '../components/App';
 
 test('App', () => {
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import { UseAppContext } from '../context/appContext';
-import '../styles/Header.scss';
+import React from 'react'
+import { UseAppContext } from '../context/appContext'
+import '../styles/Header.scss'
 
 function Header() {
     const { weatherData, currentLocation } = UseAppContext()
@@ -29,4 +29,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default Header

@@ -1,9 +1,9 @@
-import React from 'react';
-import { UseAppContext } from '../context/appContext';
+import React from 'react'
+import { UseAppContext } from '../context/appContext'
 import Search from './Search'
 import Forecast from '../components/Forecast'
 import Header from '../components/Header'
-import '../styles/App.scss';
+import '../styles/App.scss'
 
 function App() {
   const appContext = UseAppContext()
@@ -23,5 +23,4 @@ function App() {
   )
 }
 
-export default App;
-
+export default App

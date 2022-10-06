@@ -11,6 +11,10 @@ class OpenWeatherAPI {
         this.navigator = navigator;
     }
 
+    /**
+     * Function initializes user current location on initial load and returns forecast
+     * @returns Promise<[]> 3 Day forecast on initial user location
+     */
     async initialize() {
         const { geolocation } = this.navigator
         return new Promise((resolve, reject) => {
@@ -35,6 +39,12 @@ class OpenWeatherAPI {
         })
     }
 
+    /**
+     * Function fetches 3 day forcast
+     * @param {Number} lon location longitude
+     * @param {Number} lat location latitude
+     * @returns Promise<[]> 3 Day forecast
+     */
     async fetchThreeDayForcast(lon, lat) {
         const fetchDays = fetch(`${this.BASE_URL}lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts,current&units=imperial&appid=${this.API_KEY}`)
         const coordsToLocation = openCageAPI.transformCoordsToLocation(lat, lon)
@@ -44,6 +54,7 @@ class OpenWeatherAPI {
 
         this.setCurrentLocation(location)
 
+        // flatten and outsource data 
         const weather = response.daily.map(obj => {
             const dataObject = {
                 id: obj.dt,

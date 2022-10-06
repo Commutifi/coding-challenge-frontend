@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { UseAppContext } from '../context/appContext';
-import { openCageAPI } from '../apiServices/openCageAPI';
+import { useEffect, useState } from 'react'
+import { UseAppContext } from '../context/appContext'
+import { openCageAPI } from '../apiServices/openCageAPI'
 import '../styles/Search.scss'
 
 function Search() {
@@ -57,4 +57,4 @@ function Search() {
     )
 }
 
-export default Search;
+export default Search

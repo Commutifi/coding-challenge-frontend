@@ -2,6 +2,11 @@ class OpenCageAPI {
     BASE_URL = process.env.REACT_APP_OPEN_CAGE_BASE_URL
     API_KEY = process.env.REACT_APP_OPEN_CAGE_API_KEY
 
+    /**
+     * Function fetches dropdown options based on user search request
+     * @param {String} queryString Search param
+     * @returns Promise<[]> Dropdown options
+     */
     async queryLocationOptions(queryString) {
         try {
             const response = await fetch(`${this.BASE_URL}q=${queryString}&key=${this.API_KEY}&language=en`)
@@ -28,6 +33,12 @@ class OpenCageAPI {
         }
     }
 
+    /**
+     * Function fetches location information by provided lat and lot
+     * @param {Number} lat location latitude
+     * @param {Number} lon location longitude
+     * @returns Promise<{}> Object with current location information
+     */
     async transformCoordsToLocation(lat, lon) {
         try {
             const response = await fetch(`${this.BASE_URL}q=${lat},${lon}&key=${this.API_KEY}&language=en`)

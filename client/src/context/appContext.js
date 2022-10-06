@@ -1,13 +1,13 @@
-import React, { useEffect, createContext, useContext, useState } from 'react';
-import { openWeatherAPI } from '../apiServices/openWeatherAPI';
+import React, { useEffect, createContext, useContext, useState } from 'react'
+import { openWeatherAPI } from '../apiServices/openWeatherAPI'
 import { openCageAPI } from '../apiServices/openCageAPI'
-import { cToF, fToC } from '../helpers/temperatureConvertion';
+import { cToF, fToC } from '../helpers/temperatureConvertion'
 import toggleTemperatureColor from '../helpers/temperatureColorToggle'
 
-const AppContext = createContext(undefined);
+const AppContext = createContext(undefined)
 
 export const UseAppContext = () => {
-    return useContext(AppContext);
+    return useContext(AppContext)
 };
 
 export const AppContextProvider = (props) => {
@@ -21,8 +21,9 @@ export const AppContextProvider = (props) => {
                 setWeatherData(data)
                 setCurrentLocation(openWeatherAPI.getCurrentLocation())
             })
-            .catch(() => {
-
+            .catch((err) => {
+                //need to configure jest to escape catch block unhandled rejection warning
+                console.error(err)
             })
     }, [])
 
