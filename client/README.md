@@ -11,9 +11,9 @@ Run the app in the development mode `NPM START`
 Launches the test runner in the interactive watch mode `NPM RUN TEST`
 
 Inside CLIENT folder copy .env.example into .env and obtain API keys
-Open Weather: [https://api.openweathermap.org](https://api.openweathermap.org)
-Open Weather Icons: [http://openweathermap.org/img/w/](http://openweathermap.org/img/w/)
-Open Cage: [https://opencagedata.com/](https://opencagedata.com/)
+- Open Weather: [https://api.openweathermap.org](https://api.openweathermap.org)
+- Open Weather Icons: [http://openweathermap.org/img/w/](http://openweathermap.org/img/w/)
+- Open Cage: [https://opencagedata.com/](https://opencagedata.com/)
 
-### Deployment
+## Deployment
 Visit deployed app: [http://ktoroshchin.github.io/commutify-challenge](http://ktoroshchin.github.io/commutify-challenge)
