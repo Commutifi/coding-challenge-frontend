@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, cd into CLIENT folder and install packages ### `NPM INSTALL`
+In the project directory, cd into CLIENT folder and install packages `NPM INSTALL`
 
-Run the app in the development mode ### `NPM START`
+Run the app in the development mode `NPM START`
 
-Launches the test runner in the interactive watch mode ### `NPM RUN TEST`
+Launches the test runner in the interactive watch mode `NPM RUN TEST`
 
 Inside CLIENT folder copy .env.example into .env and obtain API keys
 Open Weather: [https://api.openweathermap.org](https://api.openweathermap.org)
