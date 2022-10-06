@@ -1,0 +1,31 @@
+.day {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 1rem;
+
+    &__header {
+        font-weight: normal;
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    &__value {
+        font-size: 2rem;
+        cursor: pointer;
+
+        &_yellow {
+            color: #FFCC00;
+        }
+
+        &_blue {
+            color: #0099FF;
+        }
+
+        &_red {
+            color: #FF5B5B;
+        }
+    }
+}
