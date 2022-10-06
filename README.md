@@ -1,6 +1,6 @@
 # Weather Forecast Application
 
-## Find the current weather and 2 days forecast of your current location or any city on Earth with this simple web app.
+## Find the current weather and 2 days forecast of your current location or any city on Earth with this simple microsite.
 
 Demo can be found <a href="https://demo-weather-application.netlify.app/">here</a>
 
@@ -11,11 +11,11 @@ Demo can be found <a href="https://demo-weather-application.netlify.app/">here</
 - React, TypeScript, SASS
 - OpenWeatherMap's API to get data of current and 2 days weather forecast,
 - OpenWeatherMap's icons for weather icons
-- OpenCage API to get your current location
+- OpenCage API to get current location from geocode
 
 ## Getting started
 
-To get a local copy up and running follow these simple steps :
+To get a local copy up and running, follow these simple steps :
 
 ### Prerequisites
 
@@ -43,5 +43,5 @@ To run this project, you'll need to have the following installed:
 
 3. Start the application :
    ```sh
-   npm run start
+   npm start
    ```
