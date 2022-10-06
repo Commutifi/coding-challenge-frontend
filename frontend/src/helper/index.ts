@@ -37,6 +37,7 @@ const weatherMap = new Map();
 weatherMap.set('Rain', 'Rainy');
 weatherMap.set('Clouds', 'Cloudy');
 weatherMap.set('Clear', 'Sunny');
+weatherMap.set('Snow', 'Snowy');
 
 const Helper = {
   filterLocations,

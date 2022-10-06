@@ -2,6 +2,18 @@
 
 This is responsive microsite that display the weather forecast at the locations given in the white text box.
 
+# Start
+
+```
+  cd frontend
+  yarn install
+  yarn start
+
+  cd backend
+  yarn install
+  yarn start
+```
+
 ## Functional requirements
 
 - Has a simple onboarding screen that will trigger the weather forecast base on the geolocation API of the browser. <img src='https://www.clipartmax.com/png/full/37-379751_open-green-check-mark-svg.png' style='width: 15px; height:15px;'></img>
@@ -25,14 +37,40 @@ because I did
 * React, Typescript, TailwindCSS (for fast development), Redux/RTK for Front-end
 * Express, mcache for Back-end
 
-# Project Design & Possibilities
+# Improvement Possibilities
 
-`It took me 4 days to build this microsite, so 2 days for research and designing the project, 2 days for implementation`
+- We can use animational backgrounds based on the weather, we can use
+  - rainy effect https://codepen.io/jh3y/pen/WyNdMG
+  - sunny effect https://codepen.io/t-n-l-ip/pen/LgBxdb
+  - clouds effect https://codepen.io/Mark_Bowley/pen/LYZEBq
+- We can store mostly-searched-history in localstorage
+- We can check the history to prevent repeating the same request
 
-- UI/UX improvement possibilities
-  - We can use animational backgrounds based on the weather, we can use
-    - rainy effect https://codepen.io/jh3y/pen/WyNdMG
-    - sunny effect https://codepen.io/t-n-l-ip/pen/LgBxdb
-    - clouds effecthttps://codepen.io/Mark_Bowley/pen/LYZEBq
-  - We can store mostly-searched-history in localstorage
-- 
+## Front-end Structure
+```
+├── public                      # Public directory
+├── src
+│   ├── assets                  # Locale & Images
+│   │   ├── locale              # Translation files for localization
+│   ├── components              # UI components used in this application
+│   ├── helper                  # Common functions like converting C=>F, F=>C
+│   ├── redux                   # Redux-Toolkit directory with store and slices
+│   ├── i18next.js              # Configuration for localization
+├── package.json
+├── tailwind.config.js          # TailwindCSS configuration
+├── tsconfig.json               # Typescript compiler configuration
+├── tsconfig.json               # Typescript compiler configuration
+└── tsconfig.paths.json         # Typescript paths
+```
+
+## Backend-end Structure
+```
+├── src
+│   ├── cache                   # Mcache for get requests
+│   ├── controllers             # Controllers
+│   ├── routes                  # Routes
+│   ├── i18next.js              # Configuration for localization
+├── config.js                   # Configuration fot the backend
+├── express.js
+└── package.json
+```

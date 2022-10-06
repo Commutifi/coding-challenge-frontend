@@ -7,17 +7,13 @@ const en = {
       humidity: 'Humidity',
       windy: 'Windy',
     },
-    tabs: {
-      today: 'Today',
-      tomorrow: 'Tomorrow',
-      '+2': '+2',
-    },
     input: {
       placeholder: 'Location',
     },
     dates: {
       today: 'Today',
       tomorrow: 'Tomorrow',
+      'day after tomorrow': 'Today +2',
     },
   },
 };

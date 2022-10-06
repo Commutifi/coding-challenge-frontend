@@ -10,7 +10,7 @@ const Tabs = () => {
   const date = useSelector((root: RootState) => root.forecast.date);
 
   return (
-    <div className='text-white text-lg flex gap-5 cursor-pointer'>
+    <div className='text-white text-lg flex items-center gap-5 cursor-pointer'>
       <span
         onClick={() => dispatch(setDate(0))}
         className={`${
@@ -33,7 +33,7 @@ const Tabs = () => {
           date === 2 ? 'scale-105 font-semibold text-white' : 'text-white/80'
         } hover:text-white duration-150 text-sm xl:text-base`}
       >
-        +2
+        {t('day after tomorrow')}
       </span>
     </div>
   );
