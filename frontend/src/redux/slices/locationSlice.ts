@@ -13,7 +13,7 @@ export const getLocations = createAsyncThunk(
   'getLocations',
   async (key: string) => {
     const stream_result = await fetch(
-      `http://localhost:5000/api/getlocations/${key}`
+      `http://localhost:4004/api/getlocations/${key}`
     );
     const result = await stream_result.json();
     return result;

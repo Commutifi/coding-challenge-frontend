@@ -22,7 +22,7 @@ export const getForecastInfo = createAsyncThunk(
     lon: number;
   }) => {
     const stream_result = await fetch(
-      `http://localhost:5000/api/getforecasts/${lat}/${lon}`
+      `http://localhost:4004/api/getforecasts/${lat}/${lon}`
     );
 
     const result = await stream_result.json();
