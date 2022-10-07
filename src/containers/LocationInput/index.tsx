@@ -43,7 +43,7 @@ export const LocationInput = () => {
     <div className="sm:w-full lg:w-2/6 xl:max-w-2xl mb-8 relative">
       <input
         name="location"
-        className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white rounded-xl outline-0 px-8 py-3 text-white"
+        className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white rounded-xl outline-0 px-8 py-3"
         value={value}
         onChange={onChangeInput}
         placeholder="Search citites..."
