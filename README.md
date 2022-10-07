@@ -1,7 +1,7 @@
 # Weather Forecast App
 
 A simple weather forecast app built with React.
-This project was bootstrapped with Create React App. You can see the live demo on <https://wiili-jupiter.netlify.app/>.
+This project was bootstrapped with Create React App. You can see the live demo on <https://willi-jupiter.netlify.app/>.
 
 ## Tech Stack
 
