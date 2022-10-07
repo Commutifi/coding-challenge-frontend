@@ -3,7 +3,6 @@ import LocationContext from "../context/LocationContext";
 
 import PlacesAutocomplete, {
   geocodeByAddress,
-  geocodeByPlaceId,
   getLatLng,
 } from "react-places-autocomplete";
 import "./search.scss";
@@ -19,7 +18,6 @@ const Search = ({
   const handleSelect = async (val: any) => {
     const results = await geocodeByAddress(val);
     const ll = await getLatLng(results[0]);
-    console.log(ll);
     setIsLocal(false);
     locationContext?.setLocation({
       lon: ll.lng,
@@ -29,11 +27,6 @@ const Search = ({
 
   return (
     <>
-      {/* <div>
-        <span>{address}</span>
-        <span>{coordinates.lat}</span>
-        <span>{coordinates.lng}</span>
-      </div> */}
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
@@ -47,13 +40,12 @@ const Search = ({
                 className: "location-search-input",
               })}
             />
-            <div className="autocomplete-dropdown-container">
+            <div className="autocomplete-dropdown-container" id="dd">
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion, indx) => {
                 const className = suggestion.active
                   ? "suggestion-item--active"
                   : "suggestion-item";
-                // inline style for demonstration purpose
                 const style = suggestion.active
                   ? { backgroundColor: "#fafafa", cursor: "pointer" }
                   : { backgroundColor: "#ffffff", cursor: "pointer" };

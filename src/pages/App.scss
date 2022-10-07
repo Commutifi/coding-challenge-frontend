@@ -8,3 +8,23 @@
   justify-content: center;
   height: 100vh;
 }
+
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.days {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+}
