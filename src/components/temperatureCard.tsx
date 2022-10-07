@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./weatherCard.scss";
 import {
   Cloud,
@@ -27,8 +27,6 @@ const TemperatureCard = ({
   units,
   setUnits,
 }: PropsType) => {
-  const [temp, setTemp] = useState(temperature);
-
   const getTemp = (temp: string) => {
     const t = parseInt(temp);
     if (t <= 15) {

@@ -6,8 +6,6 @@ import useWeather from "../hooks/useWeather";
 
 // Components
 import Search from "../components/search";
-import TemperatureCard from "../components/temperatureCard";
-import BasicCard from "../components/basicCard";
 import Day from "../components/day";
 
 function App() {
