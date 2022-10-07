@@ -148,11 +148,20 @@ export const LocationContextProvider: FC<{ children: ReactNode }> = (props) => {
   }, [searchQuery]);
 
   useEffect(() => {
-    if (location && lat && lng) {
+    if (lat && lng) {
       getWeatherData();
       getWeatherForecastData();
     }
   }, [location, lat, lng]);
+
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+      });
+    }
+  }, []);
 
   return (
     <LocationContext.Provider
