@@ -6,13 +6,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 0.5em;
 }
 
 .weatherInfo {
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin: 0.5em;
 
   h3 {
     text-align: center;
@@ -21,7 +22,10 @@
 
 .days {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @include md {
+    flex-direction: row;
+  }
 }
 
 .col {
