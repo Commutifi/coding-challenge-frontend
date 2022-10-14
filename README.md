@@ -1,63 +1,70 @@
-# Commutifi coding challenge frontend
+# Getting Started with Create React App
 
-Your challenge is to build a responsive microsite that display the weather forecast at the locations given in the white text box.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Functional requirements
+## Available Scripts
 
-- Has a simple onboarding screen that will trigger the weather forecast base on the geolocation API of the browser.
-- Provide an user input where the user can change the location.
-- Forecasts for: today, tomorrow and the day after tomorrow should be shown.
-- For temperatures below 15ºC, blue color should be used, for temperatures above 35ºC, red should be used and yellow should be used for other temperatures.
-- When there is no chosen location, gray should be used . If the user clicks on any temperature, the temperatures should be changed from Celsius to Fahrenheit or from Fahrenheit to Celsius.
-- The color defined here can be use for the text color or the background, be creative.
-- Components should flexible enough to display the day above or under the temperature.
+In the project directory, you can run:
 
-## Non-functional requirements
+### `npm start`
 
-- Challenge is submitted as pull request against this repo ([fork it](https://help.github.com/articles/fork-a-repo/) and [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)).
-- The microsite should be deployed and usable.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Bonus
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-* Localization: support for multiple languages (English, French, ...)
-* Backend: proxy the request, handle better the quota (cache?)
-* Features: any extra features, you think use full for the user
+### `npm test`
 
-### Remarks
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-* You can setup your microsite any way you like; but you should use the stack Node JS and React
-* CSS can be written using SASS, LESS or similar higher-level language
+### `npm run build`
 
-### Things that are important to us
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- Code quality, maintainability and readability
-- Attention to the User Experience
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Things you'll not be evaluated on
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Features we didn't list in this README
-- The quantity of code you write
+### `npm run eject`
 
-# Documentation
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Supporting API
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- To consult the weather forecast, you can use [OpenWeather](https://api.openweathermap.org/data/2.5/weather?lat=33.44&lon=-94.04&appid=b81cd1a66eaee287ea9830aa66250511) using the API key `b81cd1a66eaee287ea9830aa66250511`. If necessary, create a new account.
-- To convert latitude and longitude to a location use [OpenCage](https://api.opencagedata.com/geocode/v1/json?q=%7B%7Blatitude%7D%7D,%7B%7Blongitude%7D%7D&key=066c930b1b9f4d9bb89733fb93e9827b&language=en) using the API key `066c930b1b9f4d9bb89733fb93e9827b`. If necessary, create a new account.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-# Evaluation criteria
+## Learn More
 
-- Organization of code
-- Clarity: Does the README explain briefly what the problem is and how can I run the application?
-- Assertiveness: Is the application doing what is expected?
-- Code readability
-- Security: Are there any clear vulnerabilities?
-- Test coverage
-- History of commits (structure and quality)
-- UX: Is the interface user-friendly and self-explanatory? Is the API intuitive?
-- Technical choices
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Doubts
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Any questions you may have, open an [issue](https://github.com/Commutifi/coding-challenge-frontend). But take time to think before :)
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
