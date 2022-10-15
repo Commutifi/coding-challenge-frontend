@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+/*Commutifi color palette, obtained with the help of the following resource https://alwane.io/
+
+/* Greenish cyan */
+/* Cyan */
+/*Additional colors */
+/* Blue violet */
+/* Gray */
+/* Khaki */
+/* Scarlet red */
+/* Blue */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  background-color: #00c2a4;
+}
+
+.App {
+  height: 100vh;
+}/*# sourceMappingURL=styles.css.map */

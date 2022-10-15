@@ -1,0 +1,53 @@
+@use './mixins.scss';
+@use './variables.scss'as *;
+
+.header {
+    background-color: $cyan-800;
+    height: 48px;
+    width: 100%;
+    position: relative;
+
+    img {
+        height: 32px;
+        width: 32px;
+        padding-left: 1rem;
+        padding-top: 8px;
+    }   
+
+    svg {
+        position: absolute;
+        height: 48px;
+        fill: $cyan-300;
+        right: 1rem;
+    }
+}
+
+nav ul {
+    text-decoration: none;
+    list-style: none;
+    text-transform: uppercase;
+    @include mixins.flex(row,center,center);
+    width: 50%;
+    padding-top: 1rem;
+    justify-content: space-around;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin: 0 25%;
+    color: $cyan-900;
+
+    li:hover {
+        color: $cyan-800;
+        cursor: pointer;
+        scale: 1.02;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    color: $cyan-500;
+    font-size: 1rem;
+}

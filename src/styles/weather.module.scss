@@ -1,0 +1,198 @@
+@use './mixins.scss';
+@use './variables.scss'as *;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+
+* {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.weather {
+    height: auto;
+}
+
+.weatherSearch {
+    // background-color: $gray-500;
+    @include mixins.flex(column, center, center);
+    position: relative;
+
+    h1 {
+        padding-top: 5rem;
+        color: $cyan-800;
+        font-size: 2.5rem;
+    }
+
+    p{
+        color: $gray-1000;
+    }
+}
+
+.container {
+    width: 50%;
+    @include mixins.flex(column, center, center);
+    flex-wrap: nowrap;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 10;
+    border-radius: 8px;
+
+    .chip {
+        border: 1px solid $gray-500;
+        background-color: $gray-100;
+        color: $blueViolet-300;
+        // border-radius: 4px;
+        font-size: 0.75rem;
+        text-align: start;
+        height: 100%;
+        font-weight: 500;
+        min-height: 24px;
+        width: 90%;
+        padding: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $gray-500;
+            font-weight: 600
+        }
+
+        p {
+            font-size: 1rem;
+            color: $gray-1100
+        }
+    }
+
+}
+
+.weather {
+    @include mixins.flex(column, center, center);
+
+    article {
+        position: relative;
+
+        svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 12px;
+        left: 0.5rem;
+        fill: $gray-1100;
+        // transform: translateX(50%)
+        }
+    }
+    input {
+        background-color: $gray-400;
+        padding: 0.8rem 1rem;
+        padding-left: 2.5rem;
+        border-radius: 4px;
+        border: 0;
+        min-width: 256px;
+        font-weight: 500;
+        font-size: 1rem;
+        color: $gray-1100
+    }
+}
+
+
+
+.cardsPreview {
+    @include mixins.flex(row, start, center);
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    gap: 1rem;
+}
+
+.mockupCard {
+    width: 256px;
+    height: 320px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: 4px dashed $greenishCyan-700;
+    position: relative;
+
+    & * {
+        color: $greenishCyan-400
+    }
+
+    h4 {
+        margin: 1rem;
+        text-align: center;
+        span {
+            font-size: 1.4rem;
+            color: $cyan-800;
+        }
+
+    }
+
+    svg {
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &:hover {
+            cursor: pointer;
+            fill: $cyan-700;
+        }
+    }
+
+    video {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.errorMsg {
+    color: $scarletRed-100;
+    border: 1px solid $scarletRed-100;
+    opacity: 0.55;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.logOut {
+    width: auto;
+    margin-right: 1rem;
+    color: $khaki-300;
+
+    &:hover {
+        cursor: pointer;
+        color: $blue-500;
+    }
+}
+
+.nav {
+    padding-top: 0.5rem;
+    background-color: $blueViolet-200;
+    @include mixins.flex(row, center, center);
+    justify-content: space-between;
+
+    img {
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+
+        grid-template-columns: repeat(4, 1fr);
+
+
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 960px) {
+    .container {
+        grid-template-columns: repeat(8, 1fr);
+
+    }
+}

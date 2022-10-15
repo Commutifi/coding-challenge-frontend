@@ -1,0 +1,60 @@
+/*Commutifi color palette, obtained with the help of the following resource https://alwane.io/
+
+/* Greenish cyan */
+/* Cyan */
+/*Additional colors */
+/* Blue violet */
+/* Gray */
+/* Khaki */
+/* Scarlet red */
+/* Blue */
+.header {
+  background-color: #19908E;
+  height: 48px;
+  width: 100%;
+  position: relative;
+}
+.header img {
+  height: 32px;
+  width: 32px;
+  padding-left: 1rem;
+  padding-top: 8px;
+}
+.header svg {
+  position: absolute;
+  height: 48px;
+  fill: #d0e9ea;
+  right: 1rem;
+}
+
+nav ul {
+  text-decoration: none;
+  list-style: none;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding-top: 1rem;
+  justify-content: space-around;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  margin: 0 25%;
+  color: #051A15;
+}
+nav ul li:hover {
+  color: #19908E;
+  cursor: pointer;
+  scale: 1.02;
+}
+
+footer {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  text-align: center;
+  color: #128c7e;
+  font-size: 1rem;
+}/*# sourceMappingURL=header.module.css.map */

@@ -1,0 +1,17 @@
+@use './mixins.scss';
+@use './variables.scss'as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    background-color: $greenishCyan-400;
+}
+
+.App {
+    height: 100vh;
+}
