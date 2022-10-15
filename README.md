@@ -6,14 +6,6 @@ This project was made within a day as a frontend coding challenge. The main purp
 
 [LIVE DEMO](https://devtoti.github.io/coding-challenge-frontend/).
 
-
-### Gallery
-
-![Main Menu](src/media/repo/commuticast5.png)
-![Minimized Card](src/media/repo/commuticast4.png)
-![Card Design](src/media/repo/commuticast3.png)
-![Search Input](src/media/repo/commuticast2.png)
-
 ### How to run application locally
 
 1. Clone repo to your local computer
@@ -58,6 +50,12 @@ This project was made within a day as a frontend coding challenge. The main purp
 * Simple responsiveness for mobile and desktop using Grid and Flexbox
 * Links to company official site and my Github account
 
+### Gallery
+
+![Main Menu](src/media/repo/commuticast5.png)
+![Minimized Card](src/media/repo/commuticast4.png)
+![Card Design](src/media/repo/commuticast3.png)
+![Search Input](src/media/repo/commuticast2.png)
 
 ### Possible improvements
 
