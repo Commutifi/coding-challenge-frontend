@@ -3,23 +3,8 @@ import WeatherCard from "./WeatherCard";
 import styles from '../styles/weather.module.scss'
 import { PlusCircleIcon } from '@heroicons/react/24/solid'
 import Spinner from '../media/spinner2.mp4'
+import env from "react-dotenv";
 
-require('dotenv').config();
-
-const fetchData = async (latitude, longitude) => {
-    const lat = latitude
-    const lon = longitude
-    const response = await fetch(
-        `https://api.weather.gov/points/${lat},${lon}`
-    );
-    if (response.status !== 200) throw new Error(500)
-    const data = await response.json();
-    const { gridX, gridY } = data.properties
-    const response2 = await fetch(`https://api.weather.gov/gridpoints/TOP/${gridX},${gridY}/forecast`)
-    if (response2.status !== 200) throw new Error(500)
-    const data2 = await response2.json();
-    return data2.properties
-}
 
 export default function Weather() {
     const [apiData, setApiData] = useState([]);
@@ -31,11 +16,10 @@ export default function Weather() {
     const [isFocused, setIsFocused] = useState(false)
 
     const ref = useRef()
-    const API_KEY = process.env.API_KEY;
+    const API_KEY = env.API_KEY;
 
     useEffect(() => {
         if (!userInput) setFilteredCities([])
-        if (Object.keys(cards).length === 0) console.log('empty')
     }, [userInput, cards])
 
     useEffect(() => {
@@ -96,9 +80,7 @@ export default function Weather() {
     }
 
     const removeCard = (clickedCity) => {
-
         setCards(prev => {
-
             const minusCard = { ...prev }
             delete minusCard[clickedCity]
             return minusCard
@@ -108,7 +90,6 @@ export default function Weather() {
     const searchForCities = () => {
         setIsFocused(true)
         ref.current.focus()
-
     }
 
     return (
@@ -117,7 +98,7 @@ export default function Weather() {
                 <>
                     <div className={styles.weatherSearch}>
                         <h1>CommutiCast</h1>
-                        <p style={{paddingBottom: '1rem'}}>Check the weather, anticipate your commute</p>
+                        <p style={{ paddingBottom: '1rem' }}>Check the weather, anticipate your commute</p>
                         <article>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                 <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
@@ -130,7 +111,7 @@ export default function Weather() {
                                 const { lat, lon, name, state } = val
                                 return (
                                     <div className={styles.chip} key={ix} onClick={() => handleClick(lat, lon, name, state)}>
-                                        <p><span>{name}</span>, {state}</p>
+                                        <p><span>{name}</span>{state ? `, ${state}` : ''}</p>
                                     </div>
                                 )
                             })}
@@ -142,10 +123,7 @@ export default function Weather() {
 
                         {Object.entries(cards).map(([city, value], ix) => <WeatherCard key={ix} city={city} {...value} removeCard={() => removeCard(city)} />)}
                     </section>
-
                 </>}
-            {!isLoaded && 'Loading dashboard...'}
-
             {Object.keys(cards).length === 0 &&
                 <div className={styles.mockupCard}>
 
@@ -156,9 +134,7 @@ export default function Weather() {
                         <h4>
                             Type and select your <br></br><span>desired city</span>
                         </h4>}
-                    {isFocused ? <video autostart autoPlay loop src={Spinner} onClick={searchForCities} type="video/mp4" /> : <PlusCircleIcon onClick={searchForCities} />}
-
-
+                    {isFocused ? <video autostart="true" autoPlay loop src={Spinner} onClick={searchForCities} type="video/mp4" /> : <PlusCircleIcon onClick={searchForCities} />}
                 </div>
             }
         </div>

@@ -52,6 +52,7 @@
   padding-right: 0.5rem;
   margin: 0;
   text-align: end;
+  overflow-x: hidden;
 }
 .card .cardHeader svg {
   top: 0.5rem;
@@ -112,7 +113,7 @@
 .cardHeader > div {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   height: 100%;
 }
