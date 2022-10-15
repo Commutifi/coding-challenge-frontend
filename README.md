@@ -1,17 +1,18 @@
 # CommutiCast App
-![CommutiCast](https://ibb.co/5FZw2PN)
+![CommutiCast](src/media/repo/favicon-commutifi.png)
 
 Commuticast is a microsite made in React that displays the weather forecast for any given location, allowing the user to interact with a simple, yet easy-to-use interface.
 This project was made within a day as a frontend coding challenge. The main purpose of this web application is to test my current experience and development knowledge with HTML, CSS, JavaScript, and ReactJS.
-[LIVE DEMO](https://github.com/facebook/create-react-app).
+
+[LIVE DEMO](https://devtoti.github.io/coding-challenge-frontend/).
 
 
 ### Gallery
 
-![Main Menu](https://ibb.co/vDJTnmr)
-![Minimized Card](https://ibb.co/hKcdJHx)
-![Card Design](https://ibb.co/pvZhV3c)
-![Search Input](https://ibb.co/vcYwGhR)
+![Main Menu](src/media/repo/commuticast5.png)
+![Minimized Card](src/media/repo/commuticast4.png)
+![Card Design](src/media/repo/commuticast3.png)
+![Search Input](src/media/repo/commuticast2.png)
 
 ### How to run application locally
 
