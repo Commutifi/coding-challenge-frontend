@@ -100,7 +100,7 @@
 .cardsPreview {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 5rem;

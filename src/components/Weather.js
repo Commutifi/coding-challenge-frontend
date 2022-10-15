@@ -3,7 +3,6 @@ import WeatherCard from "./WeatherCard";
 import styles from '../styles/weather.module.scss'
 import { PlusCircleIcon } from '@heroicons/react/24/solid'
 import Spinner from '../media/spinner2.mp4'
-import env from "react-dotenv";
 
 
 export default function Weather() {
@@ -16,7 +15,7 @@ export default function Weather() {
     const [isFocused, setIsFocused] = useState(false)
 
     const ref = useRef()
-    const API_KEY = env.API_KEY;
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
     useEffect(() => {
         if (!userInput) setFilteredCities([])
@@ -28,7 +27,7 @@ export default function Weather() {
 
     async function getCoordinates(city) {
         try {
-            const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
+            const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
             const data = await response.json()
             return data
         } catch (err) {
@@ -37,7 +36,7 @@ export default function Weather() {
     }
     async function getForecast(lat, lon) {
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}
                 `)
 
             const data = await response.json()

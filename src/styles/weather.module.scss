@@ -96,7 +96,7 @@
 
 
 .cardsPreview {
-    @include mixins.flex(row, start, center);
+    @include mixins.flex(row, flex-start, center);
     flex-wrap: wrap;
     margin-top: 5rem;
     gap: 1rem;

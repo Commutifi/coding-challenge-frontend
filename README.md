@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# CommutiCast App
+![CommutiCast](https://ibb.co/5FZw2PN)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Commuticast is a microsite made in React that displays the weather forecast for any given location, allowing the user to interact with a simple, yet easy-to-use interface.
+This project was made within a day as a frontend coding challenge. The main purpose of this web application is to test my current experience and development knowledge with HTML, CSS, JavaScript, and ReactJS.
+[LIVE DEMO](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+### Gallery
 
-### `npm start`
+![Main Menu](https://ibb.co/vDJTnmr)
+![Minimized Card](https://ibb.co/hKcdJHx)
+![Card Design](https://ibb.co/pvZhV3c)
+![Search Input](https://ibb.co/vcYwGhR)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### How to run application locally
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone repo to your local computer
+2. Open folder with desired Code Editor
+3. Run `npm install` in Terminal to install missing dependencies
+4. Run `npm start` in Terminal
+5. Navigate to the `localhost` instance for previewing
 
-### `npm test`
+## Characteristics
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Onboarding screen that welcomes users and asks for a specific city for future previewing. 
+- User input that allows for new searches and provides new city suggestions.
+- Custom cards with the weather forecasts for: today, tomorrow, and the day after tomorrow.
+- Cards can be minimized and removed. Temperature units are changed when clicked from ºF to ºC and vice-versa.
+- Functional components made with the following hooks: useState, useEffect, useRef.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Main concerns 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Working code
+* Code readability and usability
+* Good coding practices
+* User experience
+* Aesthetically pleasing user interfaces
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Dependencies
 
-### `npm run eject`
+* @heroicons
+* react-dotenv
+* sass
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Calls
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [OpenWeather GEOCODING](https://openweathermap.org/api/geocoding-api) (Direct geocoding given Location)
+* [OpenWeather FORECAST](https://openweathermap.org/forecast5) (Weather forecast given Coordinates) 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Bonuses
 
-## Learn More
+* Used .env variables for hiding API_KEY from React components
+* Generated custom icons, animations, and mockup components such as Header and Footer in order to match the company's identity.
+* Simple responsiveness for mobile and desktop using Grid and Flexbox
+* Links to company official site and my Github account
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Possible improvements
 
-### Code Splitting
+I believe there is still plenty of room for improvements and although I am pleased with the end result, I was able to recognize my weak spots during the app's development. 
+This microwebsite could be highly improved in the following aspects: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Separate my main Weather component logic into smaller components
+- Better search parameters and options when searching for cities
+- Create Parameters component that allows user to customize which data to show in each WeatherCard
+- Implement a feature that recognizes the browsers' current location
+- Learn how to add custom cookies to the application so that active sessions can be saved
+- Support multiple languages 
+- Cleaner Sass code, avoid React inline styling
+- Find better names for my variables and functions
+- Among many other stuff (Happy to read your feedback, by the way!)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
 
-### Making a Progressive Web App
+**If you would like to see more of my work, check out my online portfolio at** [http://devtoti.vercel.app](http://devtoti.vercel.app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+toti.webdev@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Sincerely,
+Antonio.
 
-### Deployment
+Last update: October 14th, 2022
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

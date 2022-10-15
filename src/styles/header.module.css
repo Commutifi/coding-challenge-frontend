@@ -57,4 +57,10 @@ footer {
   text-align: center;
   color: #128c7e;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 870px) {
+  nav ul, footer {
+    display: none;
+  }
 }/*# sourceMappingURL=header.module.css.map */

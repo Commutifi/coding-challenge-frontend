@@ -51,3 +51,9 @@ footer {
     color: $cyan-500;
     font-size: 1rem;
 }
+
+@media screen and (max-width: 870px) {
+    nav ul, footer {
+        display: none;
+    }
+}
